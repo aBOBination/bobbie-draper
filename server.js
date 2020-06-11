@@ -23,8 +23,10 @@ app.set('view engine', 'handlebars');
 
 // Routes
 var routes = require('./controller/menuController');
+var restaurantRoutes = require('./controller/restaurantController');
 
 app.use(routes);
+app.use(restaurantRoutes);
 
 var syncOptions = { force: false };
 
@@ -38,7 +40,7 @@ if (process.env.NODE_ENV === 'test') {
 db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
     console.log(
-      '==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.',
+      '==> Listening on port %s. Visit http://localhost:%s/ in your browser.',
       PORT,
       PORT
     );
