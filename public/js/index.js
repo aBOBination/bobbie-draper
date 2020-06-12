@@ -1,47 +1,47 @@
 // Get references to page elements
-var $exampleText = $('#example-text');
-var $exampleDescription = $('#example-description');
+var $restaurantName = $('#example-text');
+var $restaurantval1 = $('#example-description');
 var $submitBtn = $('#submit');
-var $exampleList = $('#example-list');
+var $restaurantList = $('#example-list');
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  postRestaurant: function(payload) {
     return $.ajax({
       headers: {
         'Content-Type': 'application/json'
       },
       type: 'POST',
-      url: 'api/examples',
-      data: JSON.stringify(example)
+      url: 'api/restaurants',
+      data: JSON.stringify(payload)
     });
   },
-  getExamples: function() {
+  getRestaurants: function() {
     return $.ajax({
-      url: 'api/examples',
+      url: 'api/restaurants/',
       type: 'GET'
     });
   },
-  deleteExample: function(id) {
+  deleteRestaurant: function(id) {
     return $.ajax({
-      url: 'api/examples/' + id,
+      url: 'api/restaurants/' + id,
       type: 'DELETE'
     });
   }
 };
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+// refreshRestaurants gets new examples from the db and repopulates the list
+var refreshRestaurants = function() {
+  API.getRestaurants().then(function(data) {
+    var $restaurants = data.map(function(payload) {
       var $a = $('<a>')
-        .text(example.text)
-        .attr('href', '/example/' + example.id);
+        .text(payload.name)
+        .attr('href', '/restaurants/' + payload.id);
 
       var $li = $('<li>')
         .attr({
           class: 'list-group-item',
-          'data-id': example.id
+          'data-id': payload.id
         })
         .append($a);
 
@@ -54,8 +54,8 @@ var refreshExamples = function() {
       return $li;
     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
+    $restaurantList.empty();
+    $restaurantList.append($restaurants);
   });
 };
 
@@ -64,22 +64,22 @@ var refreshExamples = function() {
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var payload = {
+    name: $restaurantName.val().trim()
+    // description: $restaurantval1.val().trim()
   };
 
-  if (!(example.text && example.description)) {
-    alert('You must enter an example text and description!');
-    return;
-  }
+  // if (!example.text) {
+  //   alert('You must enter an example text and description!');
+  //   return;
+  // }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  API.postRestaurant(payload).then(function() {
+    refreshRestaurants();
   });
 
-  $exampleText.val('');
-  $exampleDescription.val('');
+  $restaurantName.val('');
+  // $restaurantval1.val('');
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -89,11 +89,12 @@ var handleDeleteBtnClick = function() {
     .parent()
     .attr('data-id');
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
+  API.deleteRestaurant(idToDelete).then(function() {
+    refreshRestaurants();
   });
 };
 
 // Add event listeners to the submit and delete buttons
+refreshRestaurants();
 $submitBtn.on('click', handleFormSubmit);
-$exampleList.on('click', '.delete', handleDeleteBtnClick);
+$restaurantList.on('click', '.delete', handleDeleteBtnClick);
