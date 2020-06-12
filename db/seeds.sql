@@ -5,11 +5,11 @@ INSERT INTO users (first_name, createdAt, updatedAt) VALUES ('Melanie', now(), n
 INSERT INTO users (first_name, createdAt, updatedAt) VALUES ('McKell', now(), now());
 INSERT INTO users (first_name, createdAt, updatedAt) VALUES ('Mark', now(), now());
 INSERT INTO users (first_name, createdAt, updatedAt) VALUES ('Aaron', now(), now());
-INSERT INTO restaurants (name, userId, createdAt, updatedAt) VALUES ("Bob's Burgers", 1, now(), now());
-INSERT INTO restaurants (name, userId, createdAt, updatedAt) VALUES ("Mel's Muffalettas", 2, now(), now());
-INSERT INTO restaurants (name, userId, createdAt, updatedAt) VALUES ("McKell's Macaroons", 3, now(), now());
-INSERT INTO restaurants (name, userId, createdAt, updatedAt) VALUES ("Mark's Muffins", 4, now(), now());
-INSERT INTO restaurants (name, userId, createdAt, updatedAt) VALUES ("Aaron's Apples", 5, now(), now());
+INSERT INTO restaurants (name, createdAt, updatedAt) VALUES ("Bob's Burgers", now(), now());
+INSERT INTO restaurants (name, createdAt, updatedAt) VALUES ("Mel's Muffalettas", now(), now());
+INSERT INTO restaurants (name, createdAt, updatedAt) VALUES ("McKell's Macaroons", now(), now());
+INSERT INTO restaurants (name, createdAt, updatedAt) VALUES ("Mark's Muffins", now(), now());
+INSERT INTO restaurants (name, createdAt, updatedAt) VALUES ("Aaron's Apples", now(), now());
 INSERT INTO menus (name, restaurantId, createdAt, updatedAt) VALUES ('Lunch', 1, now(), now());
 INSERT INTO menus (name, restaurantId, createdAt, updatedAt) VALUES ('Lunch', 2, now(), now());
 INSERT INTO menus (name, restaurantId, createdAt, updatedAt) VALUES ('Breakfast', 3, now(), now());
