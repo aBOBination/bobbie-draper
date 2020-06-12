@@ -6,16 +6,7 @@ router.get('/', function(req, res) {
   db.trucks.findAll({}).then(function(data) {
     res.render('index', {
       msg: 'Welcome!',
-      trucks: data,
-    });
-  });
-});
-
-router.get('/test', function(req, res) {
-  db.trucks.findAll({}).then(function(data) {
-    res.render('index-test', {
-      msg: 'Welcome!',
-      trucks: data,
+      trucks: data
     });
   });
 });
@@ -24,7 +15,7 @@ router.get('/trucks', function(req, res) {
   db.trucks.findAll({}).then(function(data) {
     res.render('truckManager', {
       msg: 'Welcome!',
-      trucks: data,
+      trucks: data
     });
   });
 });
@@ -35,7 +26,7 @@ router.get('/trucks/:id', function(req, res) {
     .then(function(data) {
       res.render('menuManager', {
         truck: data.name,
-        items: data.menu_items,
+        items: data.menu_items
       });
     });
 });
