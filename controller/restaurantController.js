@@ -2,24 +2,22 @@ var express = require('express');
 var router = express.Router();
 var db = require('../models');
 
-// router.get('/', function(req, res) {
-//   db.Example.findAll({}).then(function(dbExamples) {
-//     res.render('index', {
-//       msg: 'Welcome!',
-//       examples: dbExamples
-//     });
-//   });
-// });
+router.get('/', function(req, res) {
+  db.restaurants.findAll({}).then(function(data) {
+    res.render('index', {
+      msg: 'Welcome!',
+      restaurants: data
+    });
+  });
+});
 
-// router.get('/example/:id', function(req, res) {
-//   db.Example.findOne({ where: { id: req.params.id } }).then(function(
-//     dbExample
-//   ) {
-//     res.render('example', {
-//       example: dbExample
-//     });
-//   });
-// });
+router.get('/restaurants/:id', function(req, res) {
+  db.restaurants.findOne({ where: { id: req.params.id } }).then(function(data) {
+    res.render('example', {
+      restaurant: data
+    });
+  });
+});
 
 router.get('/api/restaurants', function(req, res) {
   db.restaurants
@@ -36,18 +34,16 @@ router.get('/api/restaurants', function(req, res) {
     });
 });
 
-// router.post('/api/examples', function(req, res) {
-//   db.Example.create(req.body).then(function(dbExample) {
-//     res.json(dbExample);
-//   });
-// });
+router.post('/api/restaurants', function(req, res) {
+  db.restaurants.create(req.body).then(function(data) {
+    res.json(data);
+  });
+});
 
-// router.delete('/api/examples/:id', function(req, res) {
-//   db.Example.destroy({ where: { id: req.params.id } }).then(function(
-//     dbExample
-//   ) {
-//     res.json(dbExample);
-//   });
-// });
+router.delete('/api/restaurants/:id', function(req, res) {
+  db.restaurants.destroy({ where: { id: req.params.id } }).then(function(data) {
+    res.json(data);
+  });
+});
 
 module.exports = router;

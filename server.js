@@ -22,10 +22,10 @@ app.engine(
 app.set('view engine', 'handlebars');
 
 // Routes
-var routes = require('./controller/menuController');
+// var routes = require('./controller/menuController');
 var restaurantRoutes = require('./controller/restaurantController');
 
-app.use(routes);
+// app.use(routes);
 app.use(restaurantRoutes);
 
 var syncOptions = { force: false };
