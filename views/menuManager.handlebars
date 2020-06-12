@@ -22,10 +22,10 @@
     <div class="container hidden">
       <div class="row top-30">
         <div class="col-md-2 col-sm-2">
-          <a class="btn btn-light" href="/blog">Home Page</a>
+          <a class="btn btn-light" href="/">Home Page</a>
         </div>
         <div class="col-md-2 col-sm-2">
-          <a class="btn btn-light" href="/authors">Manage Food Truck</a>
+          <a class="btn btn-light" href="/trucks">Manage Food Truck</a>
         </div>
       </div>
       <div class="row">
@@ -58,9 +58,18 @@
             </div>
           </form>
         </div>
+        <h3>Truck Name: {{truck}}</h3>
+        <ul id="truck-list" class="list-group">
+          {{#each items}}
+          <li data-id="{{id}}" class="list-group-item">
+            <a href="/trucks/{{id}}">{{name}}</a>
+            <button class="btn btn-danger float-right delete">ｘ</button>
+          </li>
+          {{/each}}
+        </ul>
       </div>
     </div>
     <!-- Custom Script -->
-    <script src="js/cms.js" type="text/javascript"></script>
+    {{!-- <script src="js/cms.js" type="text/javascript"></script> --}}
   </body>
 </html>
