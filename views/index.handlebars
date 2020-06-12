@@ -87,8 +87,28 @@
                                         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
-                                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close Window</button>
+                                    {{!-- MODAL TEST --}}
+                                    <div class="modal fade">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h3 class="modal-title">New Product Alert!</h3>
+        </div>
+        <div class="modal-body">
+          <h4>Codebrainery Wizard</h4>
+          <p>Sign up today for tons of new, in-depth web development training, and live support from our team of Codebrainery CodeGuides.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Try it now</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Maybe later</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{!-- MODAL TEST END --}}
                                 </div>
                             </div>
                         </div>
@@ -219,3 +239,10 @@
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
         <script src="js/index.js"></script>
+
+        {{!-- MODAL SCRIPT --}}
+        <script>
+        $(document).ready(function(){
+  $('.modal').modal('show');
+});
+</script>
