@@ -10,13 +10,13 @@ module.exports = function(sequelize, DataTypes) {
     phone_number: DataTypes.STRING
   });
 
-  Restaurant.associate = function(models) {
-    Restaurant.belongsTo(models.users, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // Restaurant.associate = function(models) {
+  //   Restaurant.belongsTo(models.users, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
 
   Restaurant.associate = function(models) {
     Restaurant.hasMany(models.menus, {

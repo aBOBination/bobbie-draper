@@ -4,10 +4,10 @@ module.exports = function(sequelize, DataTypes) {
     last_name: DataTypes.STRING,
     email: DataTypes.STRING
   });
-  User.associate = function(models) {
-    User.hasMany(models.restaurants, {
-      onDelete: 'cascade'
-    });
-  };
+  // User.associate = function(models) {
+  //   User.hasMany(models.restaurants, {
+  //     onDelete: 'cascade'
+  //   });
+  // };
   return User;
 };
