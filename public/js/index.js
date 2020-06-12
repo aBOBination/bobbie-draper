@@ -48,7 +48,7 @@ var refreshTrucks = function() {
         .addClass('btn btn-danger float-right delete')
         .text('ｘ');
 
-      $li.append($button);
+      // $li.append($button);
 
       return $li;
     });

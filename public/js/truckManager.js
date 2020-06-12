@@ -1,101 +1,97 @@
-$(document).ready(function () {
-  // Getting references to the name input and author container, as well as the table body
-  var nameInput = $('#author-name');
-  var authorList = $('tbody');
-  var authorContainer = $('.author-container');
-  // Adding event listeners to the form to create a new object, and the button to delete
-  // an Author
-  $(document).on('submit', '#author-form', handleAuthorFormSubmit);
-  $(document).on('click', '.delete-author', handleDeleteButtonPress);
+// Get references to page elements
+var $truckName = $('#truck-name');
+var $submitBtn = $('#submit');
+var $truckList = $('#truck-list');
 
-  // Getting the initial list of Authors
-  getAuthors();
-
-  // A function to handle what happens when the form is submitted to create a new Author
-  function handleAuthorFormSubmit(event) {
-    event.preventDefault();
-    // Don't do anything if the name fields hasn't been filled out
-    if (!nameInput.val().trim().trim()) {
-      return;
-    }
-    // Calling the upsertAuthor function and passing in the value of the name input
-    upsertAuthor({
-      name: nameInput.val().trim(),
+// The API object contains methods for each kind of request we'll make
+var API = {
+  postTruck: function(payload) {
+    return $.ajax({
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      type: 'POST',
+      url: 'api/trucks',
+      data: JSON.stringify(payload),
     });
-  }
-
-  // A function for creating an author. Calls getAuthors upon completion
-  function upsertAuthor(authorData) {
-    $.post('/api/authors', authorData).then(getAuthors);
-  }
-
-  // Function for creating a new list row for authors
-  function createAuthorRow(authorData) {
-    var newTr = $('<tr>');
-    newTr.data('author', authorData);
-    newTr.append('<td>' + authorData.name + '</td>');
-    if (authorData.Posts) {
-      newTr.append('<td> ' + authorData.Posts.length + '</td>');
-    } else {
-      newTr.append('<td>0</td>');
-    }
-    newTr.append(
-      "<td><a href='/blog?author_id=" +
-        authorData.id +
-        "'>Go to Listings</a></td>"
-    );
-    newTr.append(
-      "<td><a href='/cms?author_id=" +
-        authorData.id +
-        "'>Create a Menu</a></td>"
-    );
-    newTr.append(
-      "<td><a style='cursor:pointer;color:red' class='delete-author'>Delete Listing</a></td>"
-    );
-    return newTr;
-  }
-
-  // Function for retrieving authors and getting them ready to be rendered to the page
-  function getAuthors() {
-    $.get('/api/authors', function (data) {
-      var rowsToAdd = [];
-      for (var i = 0; i < data.length; i++) {
-        rowsToAdd.push(createAuthorRow(data[i]));
-      }
-      renderAuthorList(rowsToAdd);
-      nameInput.val('');
+  },
+  getTrucks: function() {
+    return $.ajax({
+      url: 'api/trucks/',
+      type: 'GET',
     });
-  }
+  },
+  deleteTruck: function(id) {
+    return $.ajax({
+      url: 'api/trucks/' + id,
+      type: 'DELETE',
+    });
+  },
+};
 
-  // A function for rendering the list of authors to the page
-  function renderAuthorList(rows) {
-    authorList.children().not(':last').remove();
-    authorContainer.children('.alert').remove();
-    if (rows.length) {
-      console.log(rows);
-      authorList.prepend(rows);
-    } else {
-      renderEmpty();
-    }
-  }
+// refreshTrucks gets new trucks from the db and repopulates the list
+var refreshTrucks = function() {
+  API.getTrucks().then(function(data) {
+    var $trucks = data.map(function(payload) {
+      var $a = $('<a>')
+        .text(payload.name)
+        .attr('href', '/trucks/' + payload.id);
 
-  // Function for handling what to render when there are no authors
-  function renderEmpty() {
-    var alertDiv = $('<div>');
-    alertDiv.addClass('alert alert-danger');
-    alertDiv.text(
-      'You must create a Food Truck before you can create a listing.'
-    );
-    authorContainer.append(alertDiv);
-  }
+      var $li = $('<li>')
+        .attr({
+          class: 'list-group-item',
+          'data-id': payload.id,
+        })
+        .append($a);
 
-  // Function for handling what happens when the delete button is pressed
-  function handleDeleteButtonPress() {
-    var listItemData = $(this).parent('td').parent('tr').data('author');
-    var id = listItemData.id;
-    $.ajax({
-      method: 'DELETE',
-      url: '/api/authors/' + id,
-    }).then(getAuthors);
-  }
-});
+      var $button = $('<button>')
+        .addClass('btn btn-danger float-right delete')
+        .text('ｘ');
+
+      $li.append($button);
+
+      return $li;
+    });
+
+    $truckList.empty();
+    $truckList.append($trucks);
+  });
+};
+
+// handleFormSubmit is called whenever we submit a new truck
+// Save the new truck to the db and refresh the list
+var handleFormSubmit = function(event) {
+  event.preventDefault();
+
+  var payload = {
+    name: $truckName.val().trim(),
+  };
+
+  // if (!truck.name) {
+  //   alert('You must enter an truck name and description!');
+  //   return;
+  // }
+
+  API.postTruck(payload).then(function() {
+    refreshTrucks();
+  });
+
+  $truckName.val('');
+};
+
+// handleDeleteBtnClick is called when an truck's delete button is clicked
+// Remove the truck from the db and refresh the list
+var handleDeleteBtnClick = function() {
+  var idToDelete = $(this)
+    .parent()
+    .attr('data-id');
+
+  API.deleteTruck(idToDelete).then(function() {
+    refreshTrucks();
+  });
+};
+
+// Add event listeners to the submit and delete buttons
+refreshTrucks();
+$submitBtn.on('click', handleFormSubmit);
+$truckList.on('click', '.delete', handleDeleteBtnClick);
