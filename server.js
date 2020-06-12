@@ -16,17 +16,18 @@ app.use(express.static('public'));
 app.engine(
   'handlebars',
   exphbs({
-    defaultLayout: 'main'
+    defaultLayout: 'main',
   })
 );
 app.set('view engine', 'handlebars');
 
 // Routes
-// var routes = require('./controller/menuController');
-var restaurantRoutes = require('./controller/restaurantController');
+var apiRoutes = require('./controller/apiController');
+var htmlRoutes = require('./controller/htmlController');
 
 // app.use(routes);
-app.use(restaurantRoutes);
+app.use(apiRoutes);
+app.use(htmlRoutes);
 
 var syncOptions = { force: false };
 

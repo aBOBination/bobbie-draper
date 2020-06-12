@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Restaurant = sequelize.define('restaurants', {
+  var Restaurant = sequelize.define('trucks', {
     name: DataTypes.STRING,
     street1: DataTypes.STRING,
     street2: DataTypes.STRING,
@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
     state: DataTypes.STRING,
     postcode: DataTypes.STRING,
     country: DataTypes.STRING,
-    phone_number: DataTypes.STRING
+    phone_number: DataTypes.STRING,
   });
 
   // Restaurant.associate = function(models) {
@@ -19,8 +19,8 @@ module.exports = function(sequelize, DataTypes) {
   // };
 
   Restaurant.associate = function(models) {
-    Restaurant.hasMany(models.menus, {
-      onDelete: 'cascade'
+    Restaurant.hasMany(models.menu_items, {
+      onDelete: 'cascade',
     });
   };
 

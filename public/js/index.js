@@ -1,47 +1,46 @@
 // Get references to page elements
-var $restaurantName = $('#example-text');
-var $restaurantval1 = $('#example-description');
+var $truckName = $('#truck-name');
 var $submitBtn = $('#submit');
-var $restaurantList = $('#example-list');
+var $truckList = $('#truck-list');
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  postRestaurant: function(payload) {
+  postTruck: function(payload) {
     return $.ajax({
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       type: 'POST',
-      url: 'api/restaurants',
-      data: JSON.stringify(payload)
+      url: 'api/trucks',
+      data: JSON.stringify(payload),
     });
   },
-  getRestaurants: function() {
+  getTrucks: function() {
     return $.ajax({
-      url: 'api/restaurants/',
-      type: 'GET'
+      url: 'api/trucks/',
+      type: 'GET',
     });
   },
-  deleteRestaurant: function(id) {
+  deleteTruck: function(id) {
     return $.ajax({
-      url: 'api/restaurants/' + id,
-      type: 'DELETE'
+      url: 'api/trucks/' + id,
+      type: 'DELETE',
     });
-  }
+  },
 };
 
-// refreshRestaurants gets new examples from the db and repopulates the list
-var refreshRestaurants = function() {
-  API.getRestaurants().then(function(data) {
-    var $restaurants = data.map(function(payload) {
+// refreshTrucks gets new trucks from the db and repopulates the list
+var refreshTrucks = function() {
+  API.getTrucks().then(function(data) {
+    var $trucks = data.map(function(payload) {
       var $a = $('<a>')
         .text(payload.name)
-        .attr('href', '/restaurants/' + payload.id);
+        .attr('href', '/trucks/' + payload.id);
 
       var $li = $('<li>')
         .attr({
           class: 'list-group-item',
-          'data-id': payload.id
+          'data-id': payload.id,
         })
         .append($a);
 
@@ -54,47 +53,45 @@ var refreshRestaurants = function() {
       return $li;
     });
 
-    $restaurantList.empty();
-    $restaurantList.append($restaurants);
+    $truckList.empty();
+    $truckList.append($trucks);
   });
 };
 
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
+// handleFormSubmit is called whenever we submit a new truck
+// Save the new truck to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var payload = {
-    name: $restaurantName.val().trim()
-    // description: $restaurantval1.val().trim()
+    name: $truckName.val().trim(),
   };
 
-  // if (!example.text) {
-  //   alert('You must enter an example text and description!');
+  // if (!truck.name) {
+  //   alert('You must enter an truck name and description!');
   //   return;
   // }
 
-  API.postRestaurant(payload).then(function() {
-    refreshRestaurants();
+  API.postTruck(payload).then(function() {
+    refreshTrucks();
   });
 
-  $restaurantName.val('');
-  // $restaurantval1.val('');
+  $truckName.val('');
 };
 
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
+// handleDeleteBtnClick is called when an truck's delete button is clicked
+// Remove the truck from the db and refresh the list
 var handleDeleteBtnClick = function() {
   var idToDelete = $(this)
     .parent()
     .attr('data-id');
 
-  API.deleteRestaurant(idToDelete).then(function() {
-    refreshRestaurants();
+  API.deleteTruck(idToDelete).then(function() {
+    refreshTrucks();
   });
 };
 
 // Add event listeners to the submit and delete buttons
-refreshRestaurants();
+refreshTrucks();
 $submitBtn.on('click', handleFormSubmit);
-$restaurantList.on('click', '.delete', handleDeleteBtnClick);
+$truckList.on('click', '.delete', handleDeleteBtnClick);
