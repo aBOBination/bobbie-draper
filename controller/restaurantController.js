@@ -6,7 +6,16 @@ router.get('/', function(req, res) {
   db.restaurants.findAll({}).then(function(data) {
     res.render('index', {
       msg: 'Welcome!',
-      restaurants: data
+      restaurants: data,
+    });
+  });
+});
+
+router.get('/ftListings', function(req, res) {
+  db.restaurants.findAll({}).then(function(data) {
+    res.render('ftListings', {
+      msg: 'Welcome!',
+      restaurants: data,
     });
   });
 });
@@ -14,7 +23,7 @@ router.get('/', function(req, res) {
 router.get('/restaurants/:id', function(req, res) {
   db.restaurants.findOne({ where: { id: req.params.id } }).then(function(data) {
     res.render('example', {
-      restaurant: data
+      restaurant: data,
     });
   });
 });
@@ -25,9 +34,9 @@ router.get('/api/restaurants', function(req, res) {
       include: [
         {
           model: db.menus,
-          include: [db.menu_items]
-        }
-      ]
+          include: [db.menu_items],
+        },
+      ],
     })
     .then(function(data) {
       res.json(data);
