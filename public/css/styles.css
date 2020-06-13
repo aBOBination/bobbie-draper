@@ -52,6 +52,13 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 article,
 aside,
 figcaption,
