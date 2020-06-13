@@ -1,10 +1,10 @@
 USE menu_db;
 
-INSERT INTO users (first_name, createdAt, updatedAt) VALUES ('Bobby', now(), now());
-INSERT INTO users (first_name, createdAt, updatedAt) VALUES ('Melanie', now(), now());
-INSERT INTO users (first_name, createdAt, updatedAt) VALUES ('McKell', now(), now());
-INSERT INTO users (first_name, createdAt, updatedAt) VALUES ('Mark', now(), now());
-INSERT INTO users (first_name, createdAt, updatedAt) VALUES ('Aaron', now(), now());
+INSERT INTO users (username, password) VALUES ('Bobby', 'balooza');
+INSERT INTO users (username, password) VALUES ('Melanie', 'malooza');
+INSERT INTO users (username, password) VALUES ('McKell', 'kalooza');
+INSERT INTO users (username, password) VALUES ('Mark', 'marooza');
+INSERT INTO users (username, password) VALUES ('Aaron', 'aarooza);
 INSERT INTO trucks (name, createdAt, updatedAt) VALUES ("Bob's Burgers", now(), now());
 INSERT INTO trucks (name, createdAt, updatedAt) VALUES ("Mel's Muffalettas", now(), now());
 INSERT INTO trucks (name, createdAt, updatedAt) VALUES ("McKell's Macaroons", now(), now());

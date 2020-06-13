@@ -1,3 +1,22 @@
+//Login functionality
+$("#loginBtn").on("click", function(event) {
+  event.preventDefault();
+
+  var userLogin = {
+    username: $("#username").val().trim(),
+    password: $("#password").val().trim()
+  };
+
+  $.ajax("/api/user", {
+    type: "POST",
+    data: userLogin
+  }).then(
+    function() {
+      location.reload();
+    });
+});
+
+
 // Get references to page elements
 var $truckName = $('#truck-name');
 var $submitBtn = $('#submit');
