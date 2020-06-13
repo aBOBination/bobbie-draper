@@ -20,16 +20,17 @@
 </nav>
 <header class="masthead bg-primary text-white text-center">
   <div class="container d-flex align-items-center flex-column">
-    <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="assets/img/photoheader.jpg" alt="">
+    <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="assets/img/menu.jpg" alt="">
     <!-- Masthead Heading-->
-    <h1 class="masthead-heading mb-0">WELCOME</h1>
+    <h3 class="masthead-heading mb-0">Create New Food Truck Here!</h3>
+    <br>
     <form class="clearfix mb-4" action="POST">
       <div class="form-group">
-        <label for="truck-name">Example Text</label>
+
         <input type="text" id="truck-name" class="form-control" aria-describedby="truck-name"
-          placeholder="Enter Example Text">
+          placeholder="Enter Food Truck Name">
       </div>
-      <button id="submit" class="btn btn-primary float-right">Submit</button>
+      <button id="submit" class="btn btn-secondary float-center">Submit</button>
     </form>
     <!-- Icon Divider-->
     <div class="divider-custom divider-light">
@@ -37,15 +38,14 @@
       <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
       <div class="divider-custom-line"></div>
     </div>
-    <!-- Masthead Subheading-->
-    <p class="pre-wrap masthead-subheading font-weight-light mb-0">Finding a food truck just got easier!</p>
+
   </div>
 </header>
 <section class="page-section portfolio" id="portfolio">
   <div class="container">
     <!-- Portfolio Section Heading-->
     <div class="text-center">
-      <h2 class="page-section-heading text-secondary mb-0 d-inline-block">FOOD TRUCK ROUNDUP</h2>
+      <h2 class="page-section-heading text-secondary mb-0 d-inline-block">YOUR TRUCKS</h2>
     </div>
     <!-- Icon Divider-->
     <div class="divider-custom">
@@ -57,7 +57,9 @@
     <ul id="truck-list" class="list-group">
       {{#each trucks}}
       <li data-id="{{this.id}}" class="list-group-item">
-        <a href="/trucks/{{this.id}}">{{this.name}}</a>
+        {{this.name}}
+        <a href="/trucks/{{this.id}}" class="btn btn-info" role="button">Link Button</a>
+        <button class="btn btn-primary float-center edit">Edit</button>
         <button class="btn btn-danger float-right delete">ｘ</button>
       </li>
       {{/each}}

@@ -1,6 +1,7 @@
 // Get references to page elements
 var $truckName = $('#truck-name');
 var $submitBtn = $('#submit');
+// var $editBtn = $('#edit');
 var $truckList = $('#truck-list');
 
 // The API object contains methods for each kind of request we'll make
@@ -34,22 +35,28 @@ var API = {
 var refreshTrucks = function() {
   API.getTrucks().then(function(data) {
     var $trucks = data.map(function(payload) {
-      var $a = $('<a>')
-        .text(payload.name)
-        .attr('href', '/trucks/' + payload.id);
+      // var $a = $('<a>')
+      //   .text(payload.name)
+      //   .attr('href', '/trucks/' + payload.id);
 
       var $li = $('<li>')
+        .text(payload.name)
         .attr({
           class: 'list-group-item',
           'data-id': payload.id
-        })
-        .append($a);
+        });
+      // .append($a);
 
-      var $button = $('<button>')
+      var $deleteButton = $('<button>')
         .addClass('btn btn-danger float-right delete')
         .text('ｘ');
 
-      $li.append($button);
+      var $editButton = $('<a>')
+        .attr('href', '/trucks/' + payload.id)
+        .addClass('btn btn-primary float-right edit')
+        .text('Edit');
+
+      $li.append([$deleteButton, $editButton]);
 
       return $li;
     });
@@ -92,7 +99,18 @@ var handleDeleteBtnClick = function() {
   });
 };
 
+var handlePostUpdate = function() {
+  var idToUpdate = $(this)
+    .parent()
+    .attr('data-id');
+
+  API.updateTruck(idToUpdate).then(function() {
+    refreshTrucks();
+  });
+};
+
 // Add event listeners to the submit and delete buttons
 refreshTrucks();
 $submitBtn.on('click', handleFormSubmit);
 $truckList.on('click', '.delete', handleDeleteBtnClick);
+$truckList.on('click', '.update', handlePostUpdate);

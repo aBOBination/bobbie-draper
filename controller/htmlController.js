@@ -3,12 +3,14 @@ var router = express.Router();
 var db = require('../models');
 
 router.get('/', function(req, res) {
-  db.trucks.findAll({ include: [db.menu_items] }).then(function(data) {
-    res.render('index', {
-      msg: 'Welcome!',
-      trucks: data
+  db.trucks
+    .findAll({ limit: 3, include: [db.menu_items] })
+    .then(function(data) {
+      res.render('index', {
+        msg: 'Welcome!',
+        trucks: data
+      });
     });
-  });
 });
 
 router.get('/trucks', function(req, res) {

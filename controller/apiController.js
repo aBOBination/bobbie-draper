@@ -34,6 +34,12 @@ router.post('/api/user', function(req, res) {
   });
 });
 
+router.get('/api/trucks/:id', function(req, res) {
+  db.trucks.update({ where: { id: req.params.id } }).then(function(data) {
+    res.json(data);
+  });
+});
+
 router.delete('/api/trucks/:id', function(req, res) {
   db.trucks.destroy({ where: { id: req.params.id } }).then(function(data) {
     res.json(data);
