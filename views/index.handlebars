@@ -22,9 +22,9 @@
   <div class="  col-4-lg text-center log-form">
     <h2>Login to your account</h2>
     <form>
-      <input type="text" title="username" id="username" placeholder="username" />
-      <input type="password" title="password" id="password" placeholder="password" />
-      <button type="submit" class="btn" id="loginBtn">Login</button>
+      <input type="text" title="username" placeholder="username" />
+      <input type="password" title="password" placeholder="password" />
+      <button type="submit" class="btn">Login</button>
       <a class="forgot" href="#">Forgot Username?</a>
     </form>
   </div><!--end log form -->
@@ -65,15 +65,7 @@
       <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
       <div class="divider-custom-line"></div>
     </div>
-    <!-- Portfolio Grid Items-->
-    <ul id="truck-list" class="list-group">
-      {{#each trucks}}
-      <li data-id="{{id}}" class="list-group-item">
-        <a href="/trucks/{{id}}">{{name}}</a>
-        <button class="btn btn-danger float-right delete">ｘ</button>
-      </li>
-      {{/each}}
-    </ul>
+
     <div class="row justify-content-center">
       <!-- Portfolio Items-->
       <div class="col-md-6 col-lg-4 mb-5">
@@ -91,8 +83,8 @@
 
   {{#each trucks}}
   {{!-- Start trucks for each --}}
-  <div class="portfolio-modal modal fade" id="portfolioModal{{dataValues.id}}" tabindex="-1" role="dialog"
-    aria-labelledby="#portfolioModal{{id}}Label" aria-hidden="true">
+  <div class="portfolio-modal modal fade list-group" id="portfolioModal{{dataValues.id}}" tabindex="-1" role="dialog"
+    aria-labelledby="#portfolioModal{{dataValues.id}}Label" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content">
         <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i
@@ -115,7 +107,7 @@
                   Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                 <ul id="truck-list" class="list-group">
                 {{#each dataValues.menu_items}}
-                <li data-id="{{id}}" class="list-group-item">
+                <li data-id="{{dataValues.id}}" class="list-group-item">
                   <span>{{dataValues.name}}: ${{dataValues.price}}</span>
                 </li>
 
