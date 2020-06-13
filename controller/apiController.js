@@ -14,7 +14,7 @@ router.post('/api/trucks', function(req, res) {
   });
 });
 
-router.post("/api/user", function(req, res) {
+router.post('/api/user', function(req, res) {
   db.users.create(req.body).then(function(data) {
     res.json(data);
   });
