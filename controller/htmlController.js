@@ -25,8 +25,7 @@ router.get('/trucks/:id', function(req, res) {
     .findOne({ where: { id: req.params.id }, include: [db.menu_items] })
     .then(function(data) {
       res.render('menuManager', {
-        truck: data.name,
-        items: data.menu_items
+        truck: data
       });
     });
 });

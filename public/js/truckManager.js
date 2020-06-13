@@ -6,27 +6,28 @@ var $truckList = $('#truck-list');
 // The API object contains methods for each kind of request we'll make
 var API = {
   postTruck: function(payload) {
+    console.log(payload);
     return $.ajax({
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       type: 'POST',
       url: 'api/trucks',
-      data: JSON.stringify(payload),
+      data: JSON.stringify(payload)
     });
   },
   getTrucks: function() {
     return $.ajax({
       url: 'api/trucks/',
-      type: 'GET',
+      type: 'GET'
     });
   },
   deleteTruck: function(id) {
     return $.ajax({
       url: 'api/trucks/' + id,
-      type: 'DELETE',
+      type: 'DELETE'
     });
-  },
+  }
 };
 
 // refreshTrucks gets new trucks from the db and repopulates the list
@@ -40,7 +41,7 @@ var refreshTrucks = function() {
       var $li = $('<li>')
         .attr({
           class: 'list-group-item',
-          'data-id': payload.id,
+          'data-id': payload.id
         })
         .append($a);
 
@@ -64,9 +65,9 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var payload = {
-    name: $truckName.val().trim(),
+    name: $truckName.val().trim()
   };
-
+  console.log(payload);
   // if (!truck.name) {
   //   alert('You must enter an truck name and description!');
   //   return;
