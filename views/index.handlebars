@@ -18,17 +18,18 @@
       </ul>
     </div>
   </div>
-  <div class= "container">
-  <div class="  col-4-lg text-center log-form">
-    <h2>Login to your account</h2>
-    <form>
-      <input type="text" title="username" placeholder="username" />
-      <input type="password" title="password" placeholder="password" />
-      <button type="submit" class="btn">Login</button>
-      <a class="forgot" href="#">Forgot Username?</a>
-    </form>
-  </div><!--end log form -->
-</div>
+  <div class="container">
+    <div class="  col-4-lg text-center log-form">
+      <h2>Login to your account</h2>
+      <form>
+        <input type="text" title="username" placeholder="username" />
+        <input type="password" title="password" placeholder="password" />
+        <button type="submit" class="btn">Login</button>
+        <a class="forgot" href="#">Forgot Username?</a>
+      </form>
+    </div>
+    <!--end log form -->
+  </div>
 </nav>
 <header class="masthead bg-primary text-white text-center">
   <div class="container d-flex align-items-center flex-column">
@@ -42,7 +43,7 @@
         <input type="text" id="truck-name" class="form-control" aria-describedby="truck-name"
           placeholder="Search Food Trucks">
       </div>
-      <button id="submit" class="btn btn-primary float-center">Submit</button>
+      <button id="submit" class="btn btn-secondary float-center">Submit</button>
     </form>
     <!-- Icon Divider-->
     <div class="divider-custom divider-light">
@@ -67,16 +68,6 @@
       <div class="divider-custom-line"></div>
     </div>
 
-    <div class="row justify-content-center">
-      <!-- Portfolio Items-->
-      <div class="col-md-6 col-lg-4 mb-5">
-        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal0">
-          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-            <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
   </div>
   </div>
@@ -107,13 +98,13 @@
                   nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae?
                   Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                 <ul id="truck-list" class="list-group">
-                {{#each dataValues.menu_items}}
-                <li data-id="{{dataValues.id}}" class="list-group-item">
-                  <span>{{dataValues.name}}: ${{dataValues.price}}</span>
-                </li>
+                  {{#each dataValues.menu_items}}
+                  <li data-id="{{dataValues.id}}" class="list-group-item">
+                    <span>{{dataValues.name}}: ${{dataValues.price}}</span>
+                  </li>
 
-                {{/each}}
-              </ul>
+                  {{/each}}
+                </ul>
                 <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close
                   Window</button>
               </div>
@@ -138,16 +129,24 @@
       <!-- Portfolio Grid Items-->
       <div class="row">
         <!-- Portfolio Item 1-->
+        {{#each trucks}}
         <div class="col-md-6 col-lg-4 mb-5">
-          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal{{dataValues.id}}">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+              <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
+              </div>
             </div>
-            <img class="img-fluid" src="/img/truck1.jpg" alt="truck 1" />
+            <div>
+              <img class="img-fluid" src="/img/truck1.jpg" alt="truck {{dataValues.id}}" />
+              <div class="centered">
+                <h3 class="text-white text-center">{{dataValues.name}}</h3>
+              </div>
+            </div>
           </div>
         </div>
+        {{/each}}
         <!-- Portfolio Item 2-->
-        <div class="col-md-6 col-lg-4 mb-5">
+        {{!-- <div class="col-md-6 col-lg-4 mb-5">
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
@@ -163,7 +162,7 @@
             </div>
             <img class="img-fluid" src="/img/truck5.jpg" alt="truck 3" />
           </div>
-        </div>
+        </div> --}}
   </section>
 
   <section class="page-section bg-primary text-white mb-0" id="about">
