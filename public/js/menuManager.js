@@ -35,9 +35,8 @@ var refreshTrucks = function() {
   API.getItems($truckId.attr('id')).then(function(data) {
     var items = data.menu_items;
     var $trucks = items.map(function(payload) {
-      var $a = $('<a>')
-        .text(payload.name + ': $' + payload.price)
-        .attr('href', '/trucks/' + payload.id);
+      var $a = $('<a>').text(payload.name + ': $' + payload.price);
+      // .attr('href', '/trucks/' + payload.id);
 
       var $li = $('<li>')
         .attr({
@@ -69,7 +68,7 @@ var handleFormSubmit = function(event) {
   var payload = {
     name: $itemName.val().trim(),
     price: parseFloat($itemPrice.val()),
-    truckId: $('.list-group-item').attr('truck-id')
+    truckId: $truckId.attr('id')
   };
 
   if (!payload.name || isNaN(payload.price) == true) {
