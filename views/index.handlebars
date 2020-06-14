@@ -57,7 +57,7 @@
 </header>
 <section class="page-section portfolio" id="portfolio">
   <div class="container">
-    <!-- Portfolio Section Heading-->
+    <!-- Food Truck Results Section Heading-->
     <div class="text-center">
       <h2 class="page-section-heading text-secondary mb-0 d-inline-block">FOOD TRUCK ROUNDUP</h2>
     </div>
@@ -74,7 +74,7 @@
   </div>
 
   {{#each trucks}}
-  {{!-- Start trucks for each --}}
+  {{!-- Modal Results for each --}}
   <div class="portfolio-modal modal fade list-group" id="portfolioModal{{dataValues.id}}" tabindex="-1" role="dialog"
     aria-labelledby="#portfolioModal{{dataValues.id}}Label" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
@@ -85,7 +85,7 @@
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-lg-8">
-                <!-- Portfolio Modal - Title-->
+                <!-- Results Modal - Title-->
                 <h2 class="portfolio-modal-title text-secondary mb-0">{{dataValues.name}}</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
@@ -154,7 +154,7 @@
             <img class="img-fluid" src="/img/truck4.jpg" alt="truck 2" />
           </div>
         </div>
-        <!-- Portfolio Item 3-->
+        <!-- Food Truck Item 3-->
         <div class="col-md-6 col-lg-4 mb-5">
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -184,15 +184,17 @@
         <div class="divider-custom-line"></div>
       </div>
       <!-- About Section Content-->
-      {{!-- <div class="row">
-        <div class="col-lg-4 ml-auto">
-
+      <div class="row">
+        <div class="col-lg-12 ml-auto">
+        <p class="pre-wrap lead">The history of Food Trucks dates back to the 19th century, changing and evolving with the times. The phenomenon of today offers unique experiences to their patrons. You can see the creativity not only through the colorful and vibrant truck but expressed in their unique flavors and quality food. With their mobility, it can be hard to keep track of the next food truck location. With our help locating the future site of your favorite food truck or even the next gathering of food trucks just got easier.
+        So, why food trucks? Many of us tire of the same boring foods and the same menu items. So, who is in the mood for something different? I know we are. Now you can find food trucks in your area or search the location of your favorite truck with a click of a button. 
+        The food truck industry is flooding with creativity bringing a whole lot of happiness to their customers with the freedom of creating a variety of custom menus, and if you haven’t jumped on the food truck phenomenon. Now is your chance. Use Food Truck Frenzy to search out your first experience.</p>
         </div>
-        <div class="col-lg-4 mr-auto">
+        {{!-- <div class="col-lg-4 mr-auto">
           <p class="pre-wrap lead">Second Column!!</p>
-        </div>
+        </div> --}}
       </div>
-    </div> --}}
+    </div>
   </section>
   <section class="page-section" id="contact">
     <div class="container">
@@ -219,7 +221,7 @@
           <div class="d-flex flex-column align-items-center">
             <div class="icon-contact mb-3"><i class="far fa-envelope"></i></div>
             <div class="text-muted">Email</div><a class="lead font-weight-bold"
-              href="mailto:name@example.com">name@example.com</a>
+              href="mailto:thefoodie@foodtruckfrenzy.com">thefoodie@foodtruckfrenzy.com</a>
           </div>
         </div>
       </div>
@@ -231,7 +233,7 @@
         <!-- Footer Location-->
         <div class="col-lg-4 mb-5 mb-lg-0">
           <h4 class="mb-4">LOCATION</h4>
-          <p class="pre-wrap lead mb-0">2215 John Daniel Drive Clark, MO 65243</p>
+          <p class="pre-wrap lead mb-0">123 Roaming Foodie, UT 84101</p>
         </div>
         <!-- Footer Social Icons-->
         <div class="col-lg-4 mb-5 mb-lg-0">
@@ -246,15 +248,14 @@
         <!-- Footer About Text-->
         <div class="col-lg-4">
           <h4 class="mb-4">ABOUT FOOD TRUCK FRENZY</h4>
-          <p class="pre-wrap lead mb-0">Users can search for food trucks in their area. Food truck users add their info
-            here </p>
+          <p class="pre-wrap lead mb-0">Food Trucks add their truck, menu and locations. Users can search for food trucks in their area.</p>
         </div>
       </div>
     </div>
   </footer>
   <!-- Copyright Section-->
   <section class="copyright py-4 text-center text-white">
-    <div class="container"><small class="pre-wrap">Copyright © Your Website 2020</small></div>
+    <div class="container"><small class="pre-wrap">Copyright © Food Truck Frenzy 2020</small></div>
   </section>
   <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
   <div class="scroll-to-top d-lg-none position-fixed"><a
