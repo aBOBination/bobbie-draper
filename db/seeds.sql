@@ -4,7 +4,7 @@ INSERT INTO users (username, password) VALUES ('Bobby', 'balooza');
 INSERT INTO users (username, password) VALUES ('Melanie', 'malooza');
 INSERT INTO users (username, password) VALUES ('McKell', 'kalooza');
 INSERT INTO users (username, password) VALUES ('Mark', 'marooza');
-INSERT INTO users (username, password) VALUES ('Aaron', 'aarooza);
+INSERT INTO users (username, password) VALUES ('Aaron', 'aarooza');
 INSERT INTO trucks (name, createdAt, updatedAt) VALUES ("Bob's Burgers", now(), now());
 INSERT INTO trucks (name, createdAt, updatedAt) VALUES ("Mel's Muffalettas", now(), now());
 INSERT INTO trucks (name, createdAt, updatedAt) VALUES ("McKell's Macaroons", now(), now());
