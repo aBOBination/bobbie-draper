@@ -23,17 +23,14 @@ router.post('/api/user', function(req, res) {
     })
     .then(function(checkRes) {
       res.json(checkRes);
-      
+      console.log('checkRes', checkRes);
+
       if (checkRes === null) {
         db.users.create(req.body).then(function(data) {
           res.json(data);
         });
       }
     });
-
-  db.users.create(req.body).then(function(data) {
-    res.json(data);
-  });
 });
 
 router.get('/api/trucks/:id', function(req, res) {
