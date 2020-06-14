@@ -14,10 +14,22 @@ router.post('/api/trucks', function(req, res) {
   });
 });
 
-router.post("/api/user", function(req, res) {
-  db.users.create(req.body).then(function(data) {
-    res.json(data);
-  });
+router.post('/api/user', function(req, res) {
+  db.users
+    .findOne({
+      where: {
+        username: req.body.username
+      }
+    })
+    .then(function(checkRes) {
+      res.json(checkRes);
+      
+      if (checkRes === null) {
+        db.users.create(req.body).then(function(data) {
+          res.json(data);
+        });
+      }
+    });
 });
 
 router.delete('/api/trucks/:id', function(req, res) {
