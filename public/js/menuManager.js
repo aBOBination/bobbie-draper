@@ -3,7 +3,7 @@ var $truckId = $('.truck-id');
 var $itemName = $('#item-name');
 var $itemPrice = $('#item-price');
 var $submitBtn = $('#submit');
-var $itemList = $('.item-list');
+var $itemList = $('#item-list');
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -20,13 +20,13 @@ var API = {
   },
   getItems: function(id) {
     return $.ajax({
-      url: 'api/trucks/' + id,
+      url: '/api/trucks/' + id,
       type: 'GET'
     });
   },
   deleteTruck: function(id) {
     return $.ajax({
-      url: 'api/trucks/' + id,
+      url: '../api/menu-items/' + id,
       type: 'DELETE'
     });
   }
@@ -82,7 +82,7 @@ var handleFormSubmit = function(event) {
   API.postItem(payload).then(function() {
     refreshTrucks();
   });
-
+  location.reload();
   $itemName.val('');
   $itemPrice.val('');
 };
