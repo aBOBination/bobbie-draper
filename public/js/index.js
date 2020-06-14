@@ -17,6 +17,7 @@ $('#loginBtn').on('click', function(event) {
   }).then(function() {
     location.reload();
   });
+
 });
 
 // Get references to page elements
