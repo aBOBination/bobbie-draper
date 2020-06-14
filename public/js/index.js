@@ -1,51 +1,53 @@
 //Login functionality
-$("#loginBtn").on("click", function(event) {
+$('#loginBtn').on('click', function(event) {
   event.preventDefault();
 
   var userLogin = {
-    username: $("#username").val().trim(),
-    password: $("#password").val().trim()
+    username: $('#username')
+      .val()
+      .trim(),
+    password: $('#password')
+      .val()
+      .trim()
   };
 
-  $.ajax("/api/user", {
-    type: "POST",
+  $.ajax('/api/user', {
+    type: 'POST',
     data: userLogin
-  }).then(
-    function() {
-      location.reload();
-    });
+  }).then(function() {
+    location.reload();
+  });
 });
-
 
 // Get references to page elements
 var $truckName = $('#truck-name');
 var $submitBtn = $('#submit');
-var $truckList = $('#truck-list');
+var $truckList = $('.truck-list');
 
 // The API object contains methods for each kind of request we'll make
 var API = {
   postTruck: function(payload) {
     return $.ajax({
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       type: 'POST',
       url: 'api/trucks',
-      data: JSON.stringify(payload),
+      data: JSON.stringify(payload)
     });
   },
   getTrucks: function() {
     return $.ajax({
       url: 'api/trucks/',
-      type: 'GET',
+      type: 'GET'
     });
   },
   deleteTruck: function(id) {
     return $.ajax({
       url: 'api/trucks/' + id,
-      type: 'DELETE',
+      type: 'DELETE'
     });
-  },
+  }
 };
 
 // refreshTrucks gets new trucks from the db and repopulates the list
@@ -59,7 +61,7 @@ var refreshTrucks = function() {
       var $li = $('<li>')
         .attr({
           class: 'list-group-item',
-          'data-id': payload.id,
+          'data-id': payload.id
         })
         .append($a);
 
@@ -83,7 +85,7 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var payload = {
-    name: $truckName.val().trim(),
+    name: $truckName.val().trim()
   };
 
   // if (!truck.name) {

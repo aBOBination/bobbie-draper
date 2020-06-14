@@ -18,17 +18,18 @@
       </ul>
     </div>
   </div>
-  <div class= "container">
-  <div class="  col-4-lg text-center log-form">
-    <h2>Login to your account</h2>
-    <form>
-      <input type="text" title="username" id="username" placeholder="username" />
-      <input type="password" title="password" id="password" placeholder="password" />
-      <button type="submit" class="btn" id="loginBtn">Login</button>
-      <a class="forgot" href="#">Forgot Username?</a>
-    </form>
-  </div><!--end log form -->
-</div>
+  <div class="container">
+    <div class="  col-4-lg text-center log-form">
+      <h2>Login to your account</h2>
+      <form>
+        <input type="text" title="username" placeholder="username" />
+        <input type="password" title="password" placeholder="password" />
+        <button type="submit" class="btn">Login</button>
+        <a class="forgot" href="#">Forgot Username?</a>
+      </form>
+    </div>
+    <!--end log form -->
+  </div>
 </nav>
 <header class="masthead bg-primary text-white text-center">
   <div class="container d-flex align-items-center flex-column">
@@ -37,11 +38,12 @@
     <h1 class="masthead-heading mb-0">WELCOME</h1>
     <form class="clearfix mb-4" action="POST">
       <div class="form-group">
-        <label for="truck-name">Example Text</label>
+        <br>
+        <label for="truck-name"></label>
         <input type="text" id="truck-name" class="form-control" aria-describedby="truck-name"
-          placeholder="Enter Example Text">
+          placeholder="Search Food Trucks">
       </div>
-      <button id="submit" class="btn btn-primary float-right">Submit</button>
+      <button id="submit" class="btn btn-secondary float-center">Submit</button>
     </form>
     <!-- Icon Divider-->
     <div class="divider-custom divider-light">
@@ -65,31 +67,16 @@
       <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
       <div class="divider-custom-line"></div>
     </div>
-    <!-- Portfolio Grid Items-->
-    <ul id="truck-list" class="list-group">
-      {{#each trucks}}
-      <li data-id="{{this.id}}" class="list-group-item">
-        <a href="/trucks/{{this.id}}">{{this.name}}</a>
-        <button class="btn btn-danger float-right delete">ｘ</button>
-      </li>
-      {{/each}}
-    </ul>
-    <div class="row justify-content-center">
-      <!-- Portfolio Items-->
-      <div class="col-md-6 col-lg-4 mb-5">
-        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal0">
-          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-            <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-          </div>
-        </div>
-      </div>
-    </div>
+
   </div>
   </div>
   </div>
   </div>
-  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog"
-    aria-labelledby="#portfolioModal1Label" aria-hidden="true">
+
+  {{#each trucks}}
+  {{!-- Start trucks for each --}}
+  <div class="portfolio-modal modal fade list-group" id="portfolioModal{{dataValues.id}}" tabindex="-1" role="dialog"
+    aria-labelledby="#portfolioModal{{dataValues.id}}Label" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content">
         <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i
@@ -99,47 +86,25 @@
             <div class="row justify-content-center">
               <div class="col-lg-8">
                 <!-- Portfolio Modal - Title-->
-                <h2 class="portfolio-modal-title text-secondary mb-0">Mark's Muffins</h2>
+                <h2 class="portfolio-modal-title text-secondary mb-0">{{dataValues.name}}</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                   <div class="divider-custom-line"></div>
                   <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                   <div class="divider-custom-line"></div>
                 </div>
+
                 <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Mollitia neque assumenda ipsam
                   nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae?
                   Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close
-                  Window</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+                <ul id="truck-list" class="list-group">
+                  {{#each dataValues.menu_items}}
+                  <li data-id="{{dataValues.id}}" class="list-group-item">
+                    <span>{{dataValues.name}}: ${{dataValues.price}}</span>
+                  </li>
 
-  <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog"
-    aria-labelledby="#portfolioModal1Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i
-              class="fas fa-times"></i></span></button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title-->
-                <h2 class="portfolio-modal-title text-secondary mb-0">Mark's Muffins</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                  <div class="divider-custom-line"></div>
-                </div>
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Mollitia neque assumenda ipsam
-                  nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae?
-                  Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                  {{/each}}
+                </ul>
                 <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close
                   Window</button>
               </div>
@@ -149,62 +114,39 @@
       </div>
     </div>
   </div>
-
-  <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog"
-    aria-labelledby="#portfolioModal5Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i
-              class="fas fa-times"></i></span></button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title-->
-                <h2 class="portfolio-modal-title text-secondary mb-0">Bob's Burgers</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                  <div class="divider-custom-line"></div>
-                </div>
-                <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src="assets/img/portfolio/truch7.jpg"
-                  alt="Bob's Burgers" />
-                <!-- Portfolio Modal - Text-->
-                <p class="mb-5">New Image Description</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close
-                  Window</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  {{/each}}
 
   <section class="page-section portfolio" id="portfolio">
     <div class="container">
       <!-- Portfolio Section Heading-->
-      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
+      {{!-- <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">FOOD</h2>
       <!-- Icon Divider-->
       <div class="divider-custom">
         <div class="divider-custom-line"></div>
         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
         <div class="divider-custom-line"></div>
-      </div>
+      </div> --}}
       <!-- Portfolio Grid Items-->
       <div class="row">
         <!-- Portfolio Item 1-->
+        {{#each trucks}}
         <div class="col-md-6 col-lg-4 mb-5">
-          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal{{dataValues.id}}">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+              <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
+              </div>
             </div>
-            <img class="img-fluid" src="/img/truck1.jpg" alt="truck 1" />
+            <div>
+              <img class="img-fluid" src="/img/truck1.jpg" alt="truck {{dataValues.id}}" />
+              <div class="centered">
+                <h3 class="text-white text-center">{{dataValues.name}}</h3>
+              </div>
+            </div>
           </div>
         </div>
+        {{/each}}
         <!-- Portfolio Item 2-->
-        <div class="col-md-6 col-lg-4 mb-5">
+        {{!-- <div class="col-md-6 col-lg-4 mb-5">
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
@@ -220,7 +162,7 @@
             </div>
             <img class="img-fluid" src="/img/truck5.jpg" alt="truck 3" />
           </div>
-        </div>
+        </div> --}}
   </section>
 
   <section class="page-section bg-primary text-white mb-0" id="about">
@@ -242,7 +184,7 @@
         <div class="divider-custom-line"></div>
       </div>
       <!-- About Section Content-->
-      <div class="row">
+      {{!-- <div class="row">
         <div class="col-lg-4 ml-auto">
 
         </div>
@@ -250,7 +192,7 @@
           <p class="pre-wrap lead">Second Column!!</p>
         </div>
       </div>
-    </div>
+    </div> --}}
   </section>
   <section class="page-section" id="contact">
     <div class="container">
