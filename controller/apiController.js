@@ -31,6 +31,10 @@ router.post('/api/user', function(req, res) {
         router.get('/', function(req, res) {
           res.render('truckManager');
         });
+      } else if (req.body.password === checkRes.dataValues.password) {
+        router.get('/', function(req, res) {
+          res.render('truckManager');
+        });
       }
     });
 });
