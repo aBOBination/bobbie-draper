@@ -8,7 +8,6 @@ var $itemList = $('#item-list');
 // The API object contains methods for each kind of request we'll make
 var API = {
   postItem: function(payload) {
-    console.log(payload);
     return $.ajax({
       headers: {
         'Content-Type': 'application/json'
@@ -20,31 +19,31 @@ var API = {
   },
   getItems: function(id) {
     return $.ajax({
-      url: '/api/trucks/' + id,
+      url: '../api/trucks/' + id,
       type: 'GET'
     });
   },
-  deleteTruck: function(id) {
+  deleteItem: function(id) {
     return $.ajax({
       url: '../api/menu-items/' + id,
       type: 'DELETE'
     });
   }
 };
-
 // refreshTrucks gets new trucks from the db and repopulates the list
 var refreshTrucks = function() {
-  API.getItems().then(function(data) {
-    console.log(data);
-    var $trucks = data.map(function(payload) {
+  API.getItems($truckId.attr('id')).then(function(data) {
+    var items = data.menu_items;
+    var $trucks = items.map(function(payload) {
       var $a = $('<a>')
-        .text(payload.name)
+        .text(payload.name + ': $' + payload.price)
         .attr('href', '/trucks/' + payload.id);
 
       var $li = $('<li>')
         .attr({
           class: 'list-group-item',
-          'data-id': payload.id
+          'data-id': payload.id,
+          'truck-id': $truckId.attr('id')
         })
         .append($a);
 
@@ -69,20 +68,19 @@ var handleFormSubmit = function(event) {
 
   var payload = {
     name: $itemName.val().trim(),
-    price: parseFloat($itemPrice),
-    truckId: 1 // $truckId.attr('id')
+    price: parseFloat($itemPrice.val()),
+    truckId: $('.list-group-item').attr('truck-id')
   };
-  console.log(payload);
 
-  // if (!truck.name) {
-  //   alert('You must enter an truck name and description!');
-  //   return;
-  // }
+  if (!payload.name || isNaN(payload.price) == true) {
+    alert('You must enter a item name and price!');
+    return;
+  }
 
   API.postItem(payload).then(function() {
     refreshTrucks();
   });
-  location.reload();
+  // location.reload();
   $itemName.val('');
   $itemPrice.val('');
 };
@@ -94,7 +92,7 @@ var handleDeleteBtnClick = function() {
     .parent()
     .attr('data-id');
 
-  API.deleteTruck(idToDelete).then(function() {
+  API.deleteItem(idToDelete).then(function() {
     refreshTrucks();
   });
 };

@@ -65,4 +65,10 @@ router.delete('/api/trucks/:id', function(req, res) {
   });
 });
 
+router.delete('/api/menu-items/:id', function(req, res) {
+  db.menu_items.destroy({ where: { id: req.params.id } }).then(function(data) {
+    res.json(data);
+  });
+});
+
 module.exports = router;
