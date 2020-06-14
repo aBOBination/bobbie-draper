@@ -60,8 +60,10 @@ router.get('/api/trucks/:id', function(req, res) {
 });
 
 router.delete('/api/trucks/:id', function(req, res) {
-  db.trucks.destroy({ where: { id: req.params.id } }).then(function(data) {
-    res.json(data);
+  db.menu_items.destroy({ where: { truckId: req.params.id } }).then(function() {
+    db.trucks.destroy({ where: { id: req.params.id } }).then(function(data) {
+      res.json(data);
+    });
   });
 });
 
