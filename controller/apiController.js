@@ -8,6 +8,20 @@ router.get('/api/trucks', function(req, res) {
   });
 });
 
+router.get('/api/trucks/:id', function(req, res) {
+  db.trucks
+    .findOne({ where: { id: req.params.id }, include: [db.menu_items] })
+    .then(function(data) {
+      res.json(data);
+    });
+});
+
+router.post('/api/menu-items', function(req, res) {
+  db.menu_items.create(req.body).then(function(data) {
+    res.json(data);
+  });
+});
+
 router.post('/api/trucks', function(req, res) {
   db.trucks.create(req.body).then(function(data) {
     res.json(data);
@@ -47,6 +61,12 @@ router.get('/api/trucks/:id', function(req, res) {
 
 router.delete('/api/trucks/:id', function(req, res) {
   db.trucks.destroy({ where: { id: req.params.id } }).then(function(data) {
+    res.json(data);
+  });
+});
+
+router.delete('/api/menu-items/:id', function(req, res) {
+  db.menu_items.destroy({ where: { id: req.params.id } }).then(function(data) {
     res.json(data);
   });
 });
