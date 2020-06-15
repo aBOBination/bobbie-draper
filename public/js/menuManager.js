@@ -36,8 +36,6 @@ var refreshTrucks = function() {
     var items = data.menu_items;
     var $trucks = items.map(function(payload) {
       var $a = $('<a>').text(payload.name + ': $' + payload.price);
-      // .attr('href', '/trucks/' + payload.id);
-
       var $li = $('<li>')
         .attr({
           class: 'list-group-item',
@@ -45,16 +43,12 @@ var refreshTrucks = function() {
           'truck-id': $truckId.attr('id')
         })
         .append($a);
-
       var $button = $('<button>')
         .addClass('btn btn-danger float-right delete')
         .text('ｘ');
-
       $li.append($button);
-
       return $li;
     });
-
     $itemList.empty();
     $itemList.append($trucks);
   });
@@ -64,22 +58,18 @@ var refreshTrucks = function() {
 // Save the new truck to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
-
   var payload = {
     name: $itemName.val().trim(),
     price: parseFloat($itemPrice.val()),
     truckId: $truckId.attr('id')
   };
-
   if (!payload.name || isNaN(payload.price) == true) {
     alert('You must enter a item name and price!');
     return;
   }
-
   API.postItem(payload).then(function() {
     refreshTrucks();
   });
-  // location.reload();
   $itemName.val('');
   $itemPrice.val('');
 };
@@ -90,7 +80,6 @@ var handleDeleteBtnClick = function() {
   var idToDelete = $(this)
     .parent()
     .attr('data-id');
-
   API.deleteItem(idToDelete).then(function() {
     refreshTrucks();
   });

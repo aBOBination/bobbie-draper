@@ -39,8 +39,8 @@
     <form class="clearfix mb-4" action="POST">
       <div class="form-group">
         <br>
-        <label for="truck-name"></label>
-        <input type="text" id="truck-name" class="form-control" aria-describedby="truck-name"
+        <label for="search-term"></label>
+        <input type="text" id="search-term" class="form-control" aria-describedby="search-term"
           placeholder="Search Food Trucks">
       </div>
       <button id="submit" class="btn btn-secondary float-center">Submit</button>
@@ -72,7 +72,7 @@
   </div>
   </div>
   </div>
-
+<div>
   {{#each trucks}}
   {{!-- Modal Results for each --}}
   <div class="portfolio-modal modal fade list-group" id="portfolioModal{{dataValues.id}}" tabindex="-1" role="dialog"
@@ -97,7 +97,7 @@
                 <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Mollitia neque assumenda ipsam
                   nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae?
                   Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                <ul id="truck-list" class="list-group">
+                <ul id="item-list" class="item-group">
                   {{#each dataValues.menu_items}}
                   <li data-id="{{dataValues.id}}" class="list-group-item">
                     <span>{{dataValues.name}}: ${{dataValues.price}}</span>
@@ -115,7 +115,7 @@
     </div>
   </div>
   {{/each}}
-
+</div>
   <section class="page-section portfolio" id="portfolio">
     <div class="container">
       <!-- Portfolio Section Heading-->
@@ -127,7 +127,7 @@
         <div class="divider-custom-line"></div>
       </div> --}}
       <!-- Portfolio Grid Items-->
-      <div class="row">
+      <div id="truck-list-modal" class="row">
         <!-- Portfolio Item 1-->
         {{#each trucks}}
         <div class="col-md-6 col-lg-4 mb-5">
@@ -145,6 +145,7 @@
           </div>
         </div>
         {{/each}}
+      </div>
         <!-- Portfolio Item 2-->
         {{!-- <div class="col-md-6 col-lg-4 mb-5">
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
@@ -187,7 +188,7 @@
       <div class="row">
         <div class="col-lg-12 ml-auto">
         <p class="pre-wrap lead">The history of Food Trucks dates back to the 19th century, changing and evolving with the times. The phenomenon of today offers unique experiences to their patrons. You can see the creativity not only through the colorful and vibrant truck but expressed in their unique flavors and quality food. With their mobility, it can be hard to keep track of the next food truck location. With our help locating the future site of your favorite food truck or even the next gathering of food trucks just got easier.
-        So, why food trucks? Many of us tire of the same boring foods and the same menu items. So, who is in the mood for something different? I know we are. Now you can find food trucks in your area or search the location of your favorite truck with a click of a button. 
+        So, why food trucks? Many of us tire of the same boring foods and the same menu items. So, who is in the mood for something different? I know we are. Now you can find food trucks in your area or search the location of your favorite truck with a click of a button.
         The food truck industry is flooding with creativity bringing a whole lot of happiness to their customers with the freedom of creating a variety of custom menus, and if you haven’t jumped on the food truck phenomenon. Now is your chance. Use Food Truck Frenzy to search out your first experience.</p>
         </div>
         {{!-- <div class="col-lg-4 mr-auto">
