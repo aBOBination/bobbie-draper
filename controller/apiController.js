@@ -1,11 +1,32 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../models');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 router.get('/api/trucks', function(req, res) {
   db.trucks.findAll({ include: [db.menu_items] }).then(function(data) {
     res.json(data);
   });
+});
+
+router.post('/api/search', function(req, res) {
+  db.trucks
+    .findAll({
+      include: [
+        {
+          model: db.menu_items,
+          where: {
+            name: {
+              [Op.like]: '%' + req.body.term + '%'
+            }
+          }
+        }
+      ]
+    })
+    .then(function(data) {
+      res.json(data);
+    });
 });
 
 router.get('/api/trucks/:id', function(req, res) {

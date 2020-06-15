@@ -17,23 +17,22 @@ $('#loginBtn').on('click', function(event) {
   }).then(function() {
     location.reload();
   });
-
 });
 
 // Get references to page elements
 var $truckName = $('#truck-name');
 var $submitBtn = $('#submit');
-var $truckList = $('.truck-list');
+var $truckList = $('#truck-list');
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  postTruck: function(payload) {
+  searchTrucks: function(payload) {
     return $.ajax({
       headers: {
         'Content-Type': 'application/json'
       },
+      url: 'api/search',
       type: 'POST',
-      url: 'api/trucks',
       data: JSON.stringify(payload)
     });
   },
@@ -86,19 +85,65 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var payload = {
-    name: $truckName.val().trim()
+    term: $('#search-term').val()
   };
 
-  // if (!truck.name) {
-  //   alert('You must enter an truck name and description!');
-  //   return;
-  // }
+  API.searchTrucks(payload).then(function(data) {
+    // console.log(data);
+    var $modalTemp = data.map(function(truck) {
+      var $i = $('<i>').addClass('fas fa-plus fa-3x');
+      var $d4 = $('<div>')
+        .addClass('portfolio-item-caption-content text-center text-white')
+        .append($i);
+      var $d3a = $('<div>')
+        .addClass(
+          'portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100'
+        )
+        .append($d4);
+      var $img = $('<img>').attr({
+        class: 'img-fluid',
+        src: '/img/truck1.jpg',
+        alt: 'truck ' + truck.id
+      });
+      var $h3 = $('<h3>')
+        .addClass('text-white text-center')
+        .text(truck.name);
+      var $d5 = $('<div>')
+        .addClass('centered')
+        .append($h3);
+      var $d3b = $('<div>').append([$img, $d5]);
+      var $d2 = $('<div>')
+        .attr({
+          class: 'portfolio-item mx-auto',
+          'data-toggle': 'modal',
+          'data-target': '#portfolioModal' + truck.id
+        })
+        .append([$d3a, $d3b]);
+      var $d1 = $('<div>')
+        .addClass('col-md-6 col-lg-4 mb-5')
+        .append($d2);
+      return $d1;
+    });
 
-  API.postTruck(payload).then(function() {
-    refreshTrucks();
+    var $trucks = data.map(function(truck) {
+      var $a = $('<a>')
+        .text(truck.name)
+        .attr('href', '/trucks/' + truck.id);
+      var $li = $('<li>')
+        .attr({
+          class: 'list-group-item',
+          'data-id': truck.id
+        })
+        .append($a);
+      return $li;
+    });
+    $('#truck-list').empty();
+    $('#truck-list-modal').empty();
+    $('#truck-list-modal').append($modalTemp);
+    $('#truck-list').append($trucks);
   });
 
-  $truckName.val('');
+  term.val('');
 };
 
 // handleDeleteBtnClick is called when an truck's delete button is clicked
