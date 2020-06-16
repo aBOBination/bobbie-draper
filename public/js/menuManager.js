@@ -63,7 +63,7 @@ var handleFormSubmit = function(event) {
     price: parseFloat($itemPrice.val()),
     truckId: $truckId.attr('id')
   };
-  if (!payload.name || isNaN(payload.price) == true) {
+  if (!payload.name || isNaN(payload.price) === true) {
     alert('You must enter a item name and price!');
     return;
   }

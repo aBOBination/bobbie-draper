@@ -14,7 +14,6 @@
         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
             href="/api/trucks">TRUCK API</a>
         </li>
-
       </ul>
     </div>
   </div>
@@ -67,113 +66,23 @@
       <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
       <div class="divider-custom-line"></div>
     </div>
-
   </div>
+  <div id="truck-list">
   </div>
-  </div>
-  </div>
-<div id="truck-list">
-  {{#each trucks}}
-  {{!-- Modal Results for each --}}
-  <div class="portfolio-modal modal fade list-group" id="portfolioModal{{dataValues.id}}" tabindex="-1" role="dialog"
-    aria-labelledby="#portfolioModal{{dataValues.id}}Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i
-              class="fas fa-times"></i></span></button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Results Modal - Title-->
-                <h2 class="portfolio-modal-title text-secondary mb-0">{{dataValues.name}}</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                  <div class="divider-custom-line"></div>
-                </div>
-
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Mollitia neque assumenda ipsam
-                  nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae?
-                  Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                <ul id="item-list" class="item-group">
-                  {{#each dataValues.menu_items}}
-                  <li data-id="{{dataValues.id}}" class="list-group-item">
-                    <span>{{dataValues.name}}: ${{dataValues.price}}</span>
-                  </li>
-
-                  {{/each}}
-                </ul>
-                <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close
-                  Window</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  {{/each}}
-</div>
+  </section>
   <section class="page-section portfolio" id="portfolio">
     <div class="container">
-      <!-- Portfolio Section Heading-->
-      {{!-- <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">FOOD</h2>
-      <!-- Icon Divider-->
-      <div class="divider-custom">
-        <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-        <div class="divider-custom-line"></div>
-      </div> --}}
       <!-- Portfolio Grid Items-->
       <div id="truck-list-modal" class="row">
         <!-- Portfolio Item 1-->
-        {{#each trucks}}
-        <div class="col-md-6 col-lg-4 mb-5">
-          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal{{dataValues.id}}">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <div>
-              <img class="img-fluid" src="/img/truck1.jpg" alt="truck {{dataValues.id}}" />
-              <div class="centered">
-                <h3 class="text-white text-center">{{dataValues.name}}</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        {{/each}}
       </div>
-        <!-- Portfolio Item 2-->
-        {{!-- <div class="col-md-6 col-lg-4 mb-5">
-          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-            </div>
-            <img class="img-fluid" src="/img/truck4.jpg" alt="truck 2" />
-          </div>
-        </div>
-        <!-- Food Truck Item 3-->
-        <div class="col-md-6 col-lg-4 mb-5">
-          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-            </div>
-            <img class="img-fluid" src="/img/truck5.jpg" alt="truck 3" />
-          </div>
-        </div> --}}
   </section>
-
   <section class="page-section bg-primary text-white mb-0" id="about">
     <div class="container">
       {{!-- LISTING --}}
       <div class="group-list">
         <div class="container"></div>
-
       </div>
-
       <!-- About Section Heading-->
       <div class="text-center">
         <h2 class="page-section-heading d-inline-block text-white">ABOUT</h2>
@@ -187,13 +96,18 @@
       <!-- About Section Content-->
       <div class="row">
         <div class="col-lg-12 ml-auto">
-        <p class="pre-wrap lead">The history of Food Trucks dates back to the 19th century, changing and evolving with the times. The phenomenon of today offers unique experiences to their patrons. You can see the creativity not only through the colorful and vibrant truck but expressed in their unique flavors and quality food. With their mobility, it can be hard to keep track of the next food truck location. With our help locating the future site of your favorite food truck or even the next gathering of food trucks just got easier.
-        So, why food trucks? Many of us tire of the same boring foods and the same menu items. So, who is in the mood for something different? I know we are. Now you can find food trucks in your area or search the location of your favorite truck with a click of a button.
-        The food truck industry is flooding with creativity bringing a whole lot of happiness to their customers with the freedom of creating a variety of custom menus, and if you haven’t jumped on the food truck phenomenon. Now is your chance. Use Food Truck Frenzy to search out your first experience.</p>
+          <p class="pre-wrap lead">The history of Food Trucks dates back to the 19th century, changing and evolving with
+            the times. The phenomenon of today offers unique experiences to their patrons. You can see the creativity
+            not only through the colorful and vibrant truck but expressed in their unique flavors and quality food. With
+            their mobility, it can be hard to keep track of the next food truck location. With our help locating the
+            future site of your favorite food truck or even the next gathering of food trucks just got easier.
+            So, why food trucks? Many of us tire of the same boring foods and the same menu items. So, who is in the
+            mood for something different? I know we are. Now you can find food trucks in your area or search the
+            location of your favorite truck with a click of a button.
+            The food truck industry is flooding with creativity bringing a whole lot of happiness to their customers
+            with the freedom of creating a variety of custom menus, and if you haven’t jumped on the food truck
+            phenomenon. Now is your chance. Use Food Truck Frenzy to search out your first experience.</p>
         </div>
-        {{!-- <div class="col-lg-4 mr-auto">
-          <p class="pre-wrap lead">Second Column!!</p>
-        </div> --}}
       </div>
     </div>
   </section>
@@ -249,7 +163,8 @@
         <!-- Footer About Text-->
         <div class="col-lg-4">
           <h4 class="mb-4">ABOUT FOOD TRUCK FRENZY</h4>
-          <p class="pre-wrap lead mb-0">Food Trucks add their truck, menu and locations. Users can search for food trucks in their area.</p>
+          <p class="pre-wrap lead mb-0">Food Trucks add their truck, menu and locations. Users can search for food
+            trucks in their area.</p>
         </div>
       </div>
     </div>

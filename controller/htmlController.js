@@ -32,7 +32,7 @@ router.get('/trucks/:id', function(req, res) {
     });
 });
 
-router.get('/register', function(req,res){ 
+router.get('/register', function(req, res) {
   res.render('signup');
 });
 module.exports = router;

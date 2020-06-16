@@ -11,7 +11,19 @@ router.get('/api/trucks', function(req, res) {
   });
 });
 
+router.get('/api/trucks/limit', function(req, res) {
+  db.trucks
+    .findAll({
+      limit: 9,
+      include: [db.menu_items],
+      order: [['createdAt', 'DESC']]
+    })
+    .then(function(data) {
+      res.json(data);
+    });
+});
 router.post('/api/search', function(req, res) {
+  var term = req.body.term;
   db.trucks
     .findAll({
       include: [
@@ -19,14 +31,29 @@ router.post('/api/search', function(req, res) {
           model: db.menu_items,
           where: {
             name: {
-              [Op.like]: '%' + req.body.term + '%'
+              [Op.like]: '%' + term + '%'
             }
           }
         }
       ]
     })
-    .then(function(data) {
-      res.json(data);
+    .then(function(truckData) {
+      var ids = [];
+      truckData.forEach((truck) => {
+        ids.push(truck.id);
+      });
+      db.trucks
+        .findAll({
+          where: {
+            id: {
+              [Op.in]: ids
+            }
+          },
+          include: [db.menu_items]
+        })
+        .then(function(data) {
+          res.json(data);
+        });
     });
 });
 
@@ -75,27 +102,27 @@ router.post('/api/user', function(req, res) {
     });
 });
 
-router.post('/api/newUser', function (req, res) {
+router.post('/api/newUser', function(req, res) {
   db.users
     .findOne({
       where: {
         username: req.body.username
       }
     })
-    .then(function (checkRes) {
+    .then(function(checkRes) {
       res.json(checkRes);
 
       if (checkRes === null) {
-        db.users.create(req.body).then(function (data) {
+        db.users.create(req.body).then(function(data) {
           res.json(data);
         });
-        router.get('/register', function (req, res) {
+        router.get('/register', function(req, res) {
           res.render('signup', {
             msg: 'Success! Please login to access your account.'
           });
         });
       } else {
-        router.get('/register', function (req, res) {
+        router.get('/register', function(req, res) {
           res.render('signup', {
             msg: 'Sorry, that username is unavailable.'
           });
