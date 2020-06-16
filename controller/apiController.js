@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../models');
-var Sequelize = require('sequelize');
-var Op = Sequelize.Op;
+const Sequelize = require('sequelize');
+const { response } = require('express');
+const Op = Sequelize.Op;
 
 router.get('/api/trucks', function(req, res) {
   db.trucks.findAll({ include: [db.menu_items] }).then(function(data) {
@@ -96,6 +97,35 @@ router.post('/api/user', function(req, res) {
       } else if (req.body.password === checkRes.dataValues.password) {
         router.get('/', function(req, res) {
           res.render('truckManager');
+        });
+      }
+    });
+});
+
+router.post('/api/newUser', function(req, res) {
+  db.users
+    .findOne({
+      where: {
+        username: req.body.username
+      }
+    })
+    .then(function(checkRes) {
+      res.json(checkRes);
+
+      if (checkRes === null) {
+        db.users.create(req.body).then(function(data) {
+          res.json(data);
+        });
+        router.get('/register', function(req, res) {
+          res.render('signup', {
+            msg: 'Success! Please login to access your account.'
+          });
+        });
+      } else {
+        router.get('/register', function(req, res) {
+          res.render('signup', {
+            msg: 'Sorry, that username is unavailable.'
+          });
         });
       }
     });
