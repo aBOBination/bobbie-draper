@@ -54,24 +54,74 @@ var API = {
 var refreshTrucks = function() {
   API.getTrucks().then(function(data) {
     var $trucks = data.map(function(payload) {
-      var $a = $('<a>')
-        .text(payload.name)
-        .attr('href', '/trucks/' + payload.id);
+      var $ul = $('<ul>').attr({ id: 'item-list', class: 'item-group' });
+      var $p = $('<p>')
+        .addClass('mb-5')
+        .text('Description goes here.');
+      var $d9a = $('<div>').addClass('divider-custom-line');
+      var $i = $('<i>').addClass('fas fa-star');
+      var $d9b = $('<div>')
+        .addClass('divider-custom-icon')
+        .append($i);
+      var $d9c = $('<div>').addClass('divider-custom-line');
 
-      var $li = $('<li>')
-        .attr({
-          class: 'list-group-item',
-          'data-id': payload.id
-        })
-        .append($a);
+      var $h2 = $('<h2>')
+        .addClass('portfolio-modal-title text-secondary mb-0')
+        .text(truck.name);
+
+      var $d8 = $('<div>')
+        .addClass('divider-custom')
+        .append([$d9a, $d9b, $d9c]);
+
+      var $d7 = $('<div>')
+        .addClass('col-lg-8')
+        .append([$ul, $p, $d8, $h2]);
+
+      var $d6 = $('<div>')
+        .addClass('row justify-content-center')
+        .append($d7);
+
+      var $d5 = $('<div>')
+        .addClass('container')
+        .append($d6);
+
+      var $d4 = $('<div>')
+        .addClass('modal-body text-center')
+        .append($d5);
+
+      var $ibutton = $('<i>').addClass('fas fa-times');
+
+      var $ispan = $('<span>')
+        .attr({ 'aria-hidden': 'true' })
+        .append($ibutton);
 
       var $button = $('<button>')
-        .addClass('btn btn-danger float-right delete')
-        .text('ｘ');
+        .attr({
+          class: 'close',
+          type: 'button',
+          'data-dismiss': 'modal',
+          'aria-label': 'Close'
+        })
+        .append($ispan);
 
-      // $li.append($button);
+      var $d3 = $('<div>')
+        .addClass('modal-content')
+        .append([$d4, $button]);
 
-      return $li;
+      var $d2 = $('<div>')
+        .attr({ class: 'modal-dialog modal-xl', role: 'document' })
+        .append($d3);
+
+      var $d1 = $('<div>')
+        .attr({
+          class: 'portfolio-modal modal fade list-group',
+          id: 'portfolioModal' + truck.id,
+          tabindex: '-1',
+          role: 'dialog'
+        })
+        .append($d2);
+
+      return $d1;
     });
 
     $truckList.empty();
@@ -125,18 +175,90 @@ var handleFormSubmit = function(event) {
       return $d1;
     });
 
+    // var $trucks = data.map(function(truck) {
+    //   var $a = $('<a>')
+    //     .text(truck.name)
+    //     .attr('href', '/trucks/' + truck.id);
+    //   var $li = $('<li>')
+    //     .attr({
+    //       class: 'list-group-item',
+    //       'data-id': truck.id
+    //     })
+    //     .append($a);
+    //   return $li;
+    // });
+
     var $trucks = data.map(function(truck) {
-      var $a = $('<a>')
-        .text(truck.name)
-        .attr('href', '/trucks/' + truck.id);
-      var $li = $('<li>')
+      var $ul = $('<ul>').attr({ id: 'item-list', class: 'item-group' });
+      var $p = $('<p>')
+        .addClass('mb-5')
+        .text('Description goes here.');
+      var $d9a = $('<div>').addClass('divider-custom-line');
+      var $i = $('<i>').addClass('fas fa-star');
+      var $d9b = $('<div>')
+        .addClass('divider-custom-icon')
+        .append($i);
+      var $d9c = $('<div>').addClass('divider-custom-line');
+
+      var $h2 = $('<h2>')
+        .addClass('portfolio-modal-title text-secondary mb-0')
+        .text(truck.name);
+
+      var $d8 = $('<div>')
+        .addClass('divider-custom')
+        .append([$d9a, $d9b, $d9c]);
+
+      var $d7 = $('<div>')
+        .addClass('col-lg-8')
+        .append([$ul, $p, $d8, $h2]);
+
+      var $d6 = $('<div>')
+        .addClass('row justify-content-center')
+        .append($d7);
+
+      var $d5 = $('<div>')
+        .addClass('container')
+        .append($d6);
+
+      var $d4 = $('<div>')
+        .addClass('modal-body text-center')
+        .append($d5);
+
+      var $ibutton = $('<i>').addClass('fas fa-times');
+
+      var $ispan = $('<span>')
+        .attr({ 'aria-hidden': 'true' })
+        .append($ibutton);
+
+      var $button = $('<button>')
         .attr({
-          class: 'list-group-item',
-          'data-id': truck.id
+          class: 'close',
+          type: 'button',
+          'data-dismiss': 'modal',
+          'aria-label': 'Close'
         })
-        .append($a);
-      return $li;
+        .append($ispan);
+
+      var $d3 = $('<div>')
+        .addClass('modal-content')
+        .append([$d4, $button]);
+
+      var $d2 = $('<div>')
+        .attr({ class: 'modal-dialog modal-xl', role: 'document' })
+        .append($d3);
+
+      var $d1 = $('<div>')
+        .attr({
+          class: 'portfolio-modal modal fade list-group',
+          id: 'portfolioModal' + truck.id,
+          tabindex: '-1',
+          role: 'dialog'
+        })
+        .append($d2);
+
+      return $d1;
     });
+
     $('#truck-list').empty();
     $('#truck-list-modal').empty();
     $('#truck-list-modal').append($modalTemp);
