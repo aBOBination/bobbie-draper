@@ -10617,3 +10617,24 @@ form .row:first-child .floating-label-form-group {
 .btn-social {
   margin-bottom: 0.5rem;
 }
+
+/* // Create an Account  */
+#accBtn:hover {
+background-color: #00cfd5;
+position: relative;
+}
+#accBtn {
+  border-radius: 8px;
+  width: 65px;
+  
+  opacity: 80%;
+  color: #00cfd5;
+  font-size: smaller;
+  font-style: italic;
+  background-color: azure;
+  position: absolute;
+  /* display: flex; 
+  justify-content: center;  */
+}
+
+
