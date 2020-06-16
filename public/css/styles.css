@@ -10632,7 +10632,13 @@ position: relative;
   font-size: smaller;
   font-style: italic;
   background-color: azure;
+  /* position: relative; */
+  margin: 0;
   position: absolute;
+  top: 65%;
+  left: 50%;
+  /* -ms-transform: translate(-50%, -50%); */
+  transform: translate(-50%, -50%);
   /* display: flex; 
   justify-content: center;  */
 }
