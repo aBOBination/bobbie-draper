@@ -34,25 +34,24 @@
 			<div class="row">
 				<div class="col-md-10">
 					<div class="form-group">
-						<input type="text" id="regUser" class="form-control" placeholder="Your Username *" value="" />
-						{{msg}}
+						<input type="text" id="regUser" class="form-control" placeholder="Your Username *"/>
+            {{msg}}
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
-						<input type="text" id="regPass" class="form-control" placeholder="Your Password *" value="" />
+						<input type="text" id="regPass" class="form-control" placeholder="Your Password *"/>
 					</div>
 				</div>
 			</div>
-		</div>
-		</form>
-	</div>
+		</div> 
 </div>
 <div class="form-group">
 	<button type="submit" id="creatAccBtn" class="btn btn-primary btn-block" "text-center">Create Account</button>
 <br>
 <p class="text">Have an account?
 	<button type="text" class="btn btn-default btn-block" id="accBtn"><a href="/">Log In</a></button></p>
+	</form>
 </div>
 </div>
 </div>
@@ -100,8 +99,9 @@
   <script src="assets/mail/jqBootstrapValidation.js"></script>
   <script src="assets/mail/contact_me.js"></script>
   <!-- Core theme JS-->
-  <script src="../js/scripts.js"></script>
-  <script src="../js/menuManager.js"></script>
+  {{!-- <script src="../js/scripts.js"></script>
+  <script src="../js/menuManager.js"></script> --}}
+  <script src="../js/createAccount.js"></script>
 </body>
 <!-- Font Awesome icons (free version)-->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>

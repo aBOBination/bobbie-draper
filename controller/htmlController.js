@@ -15,7 +15,7 @@ router.get('/', function(req, res) {
 
 router.get('/trucks', function(req, res) {
   db.trucks.findAll({}).then(function(data) {
-    res.render('truckManager', {
+    res.writeHead('truckManager', {
       msg: 'Welcome!',
       trucks: data
     });
