@@ -45,6 +45,23 @@
   box-sizing: border-box;
 }
 
+.containers {
+  position: relative;
+  width: 100px; /* Maximum width */
+  margin: 0 auto; /* Center it */
+}
+.text-block {
+  /* position: relative; */
+  bottom: 50px;
+  /* background: #00cfd5; */
+  border-bottom-right-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
+  background: #1f2d41;
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
