@@ -19,11 +19,6 @@ $('#loginBtn').on('click', function(event) {
   });
 });
 
-// Get references to page elements
-var $truckName = $('#truck-name');
-var $submitBtn = $('#submit');
-var $truckList = $('#truck-list');
-
 // The API object contains methods for each kind of request we'll make
 var API = {
   searchTrucks: function(payload) {
@@ -38,7 +33,7 @@ var API = {
   },
   getTrucks: function() {
     return $.ajax({
-      url: 'api/trucks/',
+      url: 'api/trucks/limit',
       type: 'GET'
     });
   },
@@ -50,82 +45,138 @@ var API = {
   }
 };
 
+function generateModalTemplate(truck) {
+  var $i = $('<i>').addClass('fas fa-plus fa-3x');
+  var $d4 = $('<div>')
+    .addClass('portfolio-item-caption-content text-center text-white')
+    .append($i);
+  var $d3a = $('<div>')
+    .addClass(
+      'portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100'
+    )
+    .append($d4);
+  var $img = $('<img>').attr({
+    class: 'img-fluid',
+    src: '/img/truck1.jpg',
+    alt: 'truck ' + truck.id
+  });
+  var $h3 = $('<h3>')
+    .addClass('text-white text-center')
+    .text(truck.name);
+  var $d5 = $('<div>')
+    .addClass('centered')
+    .append($h3);
+  var $d3b = $('<div>').append([$img, $d5]);
+  var $d2 = $('<div>')
+    .attr({
+      class: 'portfolio-item mx-auto',
+      'data-toggle': 'modal',
+      'data-target': '#portfolioModal' + truck.id
+    })
+    .append([$d3a, $d3b]);
+  var $d1 = $('<div>')
+    .addClass('col-md-6 col-lg-4 mb-5')
+    .append($d2);
+  return $d1;
+}
+
+function generateModalData(truck) {
+  var items = truck.menu_items;
+  var $items = [];
+
+  items.forEach((item) => {
+    var $itemSpan = $('<span>').text(item.name + ': $' + item.price);
+    var $itemList = $('<li>')
+      .attr({
+        'data-id': item.id,
+        class: 'list-group-item'
+      })
+      .append($itemSpan);
+    $items.push($itemList);
+  });
+
+  var $ul = $('<ul>')
+    .attr({ id: 'item-list', class: 'item-group' })
+    .append($items);
+  var $p = $('<p>')
+    .addClass('mb-5')
+    .text('Description goes here.');
+  var $d9a = $('<div>').addClass('divider-custom-line');
+  var $i = $('<i>').addClass('fas fa-star');
+  var $d9b = $('<div>')
+    .addClass('divider-custom-icon')
+    .append($i);
+  var $d9c = $('<div>').addClass('divider-custom-line');
+
+  var $h2 = $('<h2>')
+    .addClass('portfolio-modal-title text-secondary mb-0')
+    .text(truck.name);
+
+  var $d8 = $('<div>')
+    .addClass('divider-custom')
+    .append([$d9a, $d9b, $d9c]);
+
+  var $d7 = $('<div>')
+    .addClass('col-lg-8')
+    .append([$h2, $d8, $p, $ul]);
+
+  var $d6 = $('<div>')
+    .addClass('row justify-content-center')
+    .append($d7);
+
+  var $d5 = $('<div>')
+    .addClass('container')
+    .append($d6);
+
+  var $d4 = $('<div>')
+    .addClass('modal-body text-center')
+    .append($d5);
+
+  var $ibutton = $('<i>').addClass('fas fa-times');
+
+  var $ispan = $('<span>')
+    .attr({ 'aria-hidden': 'true' })
+    .append($ibutton);
+
+  var $button = $('<button>')
+    .attr({
+      class: 'close',
+      type: 'button',
+      'data-dismiss': 'modal',
+      'aria-label': 'Close'
+    })
+    .append($ispan);
+
+  var $d3 = $('<div>')
+    .addClass('modal-content')
+    .append([$d4, $button]);
+
+  var $d2 = $('<div>')
+    .attr({ class: 'modal-dialog modal-xl', role: 'document' })
+    .append($d3);
+
+  var $d1 = $('<div>')
+    .attr({
+      class: 'portfolio-modal modal fade list-group',
+      id: 'portfolioModal' + truck.id,
+      tabindex: '-1',
+      role: 'dialog'
+    })
+    .append($d2);
+
+  return $d1;
+}
+
 // refreshTrucks gets new trucks from the db and repopulates the list
 var refreshTrucks = function() {
   API.getTrucks().then(function(data) {
-    var $trucks = data.map(function(payload) {
-      var $ul = $('<ul>').attr({ id: 'item-list', class: 'item-group' });
-      var $p = $('<p>')
-        .addClass('mb-5')
-        .text('Description goes here.');
-      var $d9a = $('<div>').addClass('divider-custom-line');
-      var $i = $('<i>').addClass('fas fa-star');
-      var $d9b = $('<div>')
-        .addClass('divider-custom-icon')
-        .append($i);
-      var $d9c = $('<div>').addClass('divider-custom-line');
+    var $truckModalTemplate = data.map(generateModalTemplate);
+    var $truckData = data.map(generateModalData);
 
-      var $h2 = $('<h2>')
-        .addClass('portfolio-modal-title text-secondary mb-0')
-        .text(truck.name);
-
-      var $d8 = $('<div>')
-        .addClass('divider-custom')
-        .append([$d9a, $d9b, $d9c]);
-
-      var $d7 = $('<div>')
-        .addClass('col-lg-8')
-        .append([$ul, $p, $d8, $h2]);
-
-      var $d6 = $('<div>')
-        .addClass('row justify-content-center')
-        .append($d7);
-
-      var $d5 = $('<div>')
-        .addClass('container')
-        .append($d6);
-
-      var $d4 = $('<div>')
-        .addClass('modal-body text-center')
-        .append($d5);
-
-      var $ibutton = $('<i>').addClass('fas fa-times');
-
-      var $ispan = $('<span>')
-        .attr({ 'aria-hidden': 'true' })
-        .append($ibutton);
-
-      var $button = $('<button>')
-        .attr({
-          class: 'close',
-          type: 'button',
-          'data-dismiss': 'modal',
-          'aria-label': 'Close'
-        })
-        .append($ispan);
-
-      var $d3 = $('<div>')
-        .addClass('modal-content')
-        .append([$d4, $button]);
-
-      var $d2 = $('<div>')
-        .attr({ class: 'modal-dialog modal-xl', role: 'document' })
-        .append($d3);
-
-      var $d1 = $('<div>')
-        .attr({
-          class: 'portfolio-modal modal fade list-group',
-          id: 'portfolioModal' + truck.id,
-          tabindex: '-1',
-          role: 'dialog'
-        })
-        .append($d2);
-
-      return $d1;
-    });
-
-    $truckList.empty();
-    $truckList.append($trucks);
+    $('#truck-list').empty();
+    $('#truck-list-modal').empty();
+    $('#truck-list-modal').append($truckModalTemplate);
+    $('#truck-list').append($truckData);
   });
 };
 
@@ -139,130 +190,13 @@ var handleFormSubmit = function(event) {
   };
 
   API.searchTrucks(payload).then(function(data) {
-    // console.log(data);
-    var $modalTemp = data.map(function(truck) {
-      var $i = $('<i>').addClass('fas fa-plus fa-3x');
-      var $d4 = $('<div>')
-        .addClass('portfolio-item-caption-content text-center text-white')
-        .append($i);
-      var $d3a = $('<div>')
-        .addClass(
-          'portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100'
-        )
-        .append($d4);
-      var $img = $('<img>').attr({
-        class: 'img-fluid',
-        src: '/img/truck1.jpg',
-        alt: 'truck ' + truck.id
-      });
-      var $h3 = $('<h3>')
-        .addClass('text-white text-center')
-        .text(truck.name);
-      var $d5 = $('<div>')
-        .addClass('centered')
-        .append($h3);
-      var $d3b = $('<div>').append([$img, $d5]);
-      var $d2 = $('<div>')
-        .attr({
-          class: 'portfolio-item mx-auto',
-          'data-toggle': 'modal',
-          'data-target': '#portfolioModal' + truck.id
-        })
-        .append([$d3a, $d3b]);
-      var $d1 = $('<div>')
-        .addClass('col-md-6 col-lg-4 mb-5')
-        .append($d2);
-      return $d1;
-    });
-
-    // var $trucks = data.map(function(truck) {
-    //   var $a = $('<a>')
-    //     .text(truck.name)
-    //     .attr('href', '/trucks/' + truck.id);
-    //   var $li = $('<li>')
-    //     .attr({
-    //       class: 'list-group-item',
-    //       'data-id': truck.id
-    //     })
-    //     .append($a);
-    //   return $li;
-    // });
-
-    var $trucks = data.map(function(truck) {
-      var $ul = $('<ul>').attr({ id: 'item-list', class: 'item-group' });
-      var $p = $('<p>')
-        .addClass('mb-5')
-        .text('Description goes here.');
-      var $d9a = $('<div>').addClass('divider-custom-line');
-      var $i = $('<i>').addClass('fas fa-star');
-      var $d9b = $('<div>')
-        .addClass('divider-custom-icon')
-        .append($i);
-      var $d9c = $('<div>').addClass('divider-custom-line');
-
-      var $h2 = $('<h2>')
-        .addClass('portfolio-modal-title text-secondary mb-0')
-        .text(truck.name);
-
-      var $d8 = $('<div>')
-        .addClass('divider-custom')
-        .append([$d9a, $d9b, $d9c]);
-
-      var $d7 = $('<div>')
-        .addClass('col-lg-8')
-        .append([$ul, $p, $d8, $h2]);
-
-      var $d6 = $('<div>')
-        .addClass('row justify-content-center')
-        .append($d7);
-
-      var $d5 = $('<div>')
-        .addClass('container')
-        .append($d6);
-
-      var $d4 = $('<div>')
-        .addClass('modal-body text-center')
-        .append($d5);
-
-      var $ibutton = $('<i>').addClass('fas fa-times');
-
-      var $ispan = $('<span>')
-        .attr({ 'aria-hidden': 'true' })
-        .append($ibutton);
-
-      var $button = $('<button>')
-        .attr({
-          class: 'close',
-          type: 'button',
-          'data-dismiss': 'modal',
-          'aria-label': 'Close'
-        })
-        .append($ispan);
-
-      var $d3 = $('<div>')
-        .addClass('modal-content')
-        .append([$d4, $button]);
-
-      var $d2 = $('<div>')
-        .attr({ class: 'modal-dialog modal-xl', role: 'document' })
-        .append($d3);
-
-      var $d1 = $('<div>')
-        .attr({
-          class: 'portfolio-modal modal fade list-group',
-          id: 'portfolioModal' + truck.id,
-          tabindex: '-1',
-          role: 'dialog'
-        })
-        .append($d2);
-
-      return $d1;
-    });
+    var $truckModalTemplate = data.map(generateModalTemplate);
+    var $truckData = data.map(generateModalData);
 
     $('#truck-list').empty();
     $('#truck-list-modal').empty();
-    $('#truck-list-modal').append($modalTemp);
-    $('#truck-list').append($trucks);
+    $('#truck-list-modal').append($truckModalTemplate);
+    $('#truck-list').append($truckData);
   });
 
   term.val('');
@@ -282,5 +216,5 @@ var handleDeleteBtnClick = function() {
 
 // Add event listeners to the submit and delete buttons
 refreshTrucks();
-$submitBtn.on('click', handleFormSubmit);
-$truckList.on('click', '.delete', handleDeleteBtnClick);
+$('#submit').on('click', handleFormSubmit);
+$('#truck-list').on('click', '.delete', handleDeleteBtnClick);
