@@ -10659,14 +10659,12 @@ form .row:first-child .floating-label-form-group {
 }
 #regPass {
   max-width: 13.5rem;
-  /* padding: 6px;
-  padding-right: 8px;
-  margin-top: 4px; */
+  display:block;
+  margin-top: 8px; 
 }
 #regUser {
   width: 13.5rem;
-  /* padding: 6px; */
-  /* padding-right: 8px; */
+  display:block;
   align-items: center;
   justify-content: center;
   color: #fff;
