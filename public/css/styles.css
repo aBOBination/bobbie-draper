@@ -10643,16 +10643,10 @@ form .row:first-child .floating-label-form-group {
   max-width: 13.5rem;
 }
 #regUser {
-  /* max-width: 13.5rem; */
-  /* display: flex; */
-  /* height: 13.5rem; */
   width: 13.5rem;
   align-items: center;
   justify-content: center;
-  /* font-size: 2rem; */
-  /* background-color: #1f2d41; */
   color: #fff;
-  /* border-radius: 100%; */
   display: block;
 }
 
