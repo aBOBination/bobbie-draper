@@ -39,9 +39,11 @@
 </nav>
 <header class="masthead bg-primary text-white text-center">
   <div class="container d-flex align-items-center flex-column">
-    <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="assets/img/photoheader.jpg" alt="">
+    {{!-- <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="assets/img/photoheader.jpg" alt=""> --}}
+    <br>
     <!-- Masthead Heading-->
     <h1 id="{{truck.dataValues.id}}" class="masthead-heading mb-0 truck-id">{{truck.dataValues.name}}</h1>
+    <br>
     <form class="clearfix mb-4" action="POST">
       <div class="form-group">
         <label for="item-name">Add Item</label>
@@ -54,13 +56,13 @@
       <button id="submit" class="btn btn-primary float-center">Submit</button>
     </form>
     <!-- Icon Divider-->
-    <div class="divider-custom divider-light">
+    {{!-- <div class="divider-custom divider-light">
       <div class="divider-custom-line"></div>
       <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
       <div class="divider-custom-line"></div>
-    </div>
+    </div> --}}
     <!-- Masthead Subheading-->
-    <p class="pre-wrap masthead-subheading font-weight-light mb-0">Finding a food truck just got easier!</p>
+    {{!-- <p class="pre-wrap masthead-subheading font-weight-light mb-0">Finding a food truck just got easier!</p> --}}
   </div>
 </header>
 <section class="page-section portfolio" id="portfolio">
