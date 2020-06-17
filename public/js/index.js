@@ -57,7 +57,7 @@ function generateModalTemplate(truck) {
     .append($d4);
   var $img = $('<img>').attr({
     class: 'img-fluid',
-    src: '/img/truck1.jpg',
+    src: truck.img_url,
     alt: 'truck ' + truck.id
   });
   var $h3 = $('<h3>')
@@ -100,7 +100,18 @@ function generateModalData(truck) {
     .append($items);
   var $p = $('<p>')
     .addClass('mb-5')
-    .text('Description goes here.');
+    .text(truck.description);
+  var $loc = $('<p>')
+    .addClass('mb-5')
+    .text(
+      truck.city +
+        ', ' +
+        truck.state +
+        ' ' +
+        truck.country +
+        ' ' +
+        truck.phone_number
+    );
   var $d9a = $('<div>').addClass('divider-custom-line');
   var $i = $('<i>').addClass('fas fa-star');
   var $d9b = $('<div>')
@@ -118,7 +129,7 @@ function generateModalData(truck) {
 
   var $d7 = $('<div>')
     .addClass('col-lg-8')
-    .append([$h2, $d8, $p, $ul]);
+    .append([$h2, $d8, $loc, $p, $ul]);
 
   var $d6 = $('<div>')
     .addClass('row justify-content-center')
