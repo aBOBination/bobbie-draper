@@ -8,12 +8,12 @@ $('#loginBtn').on('click', function(event) {
       .trim(),
     password: $('#password')
       .val()
-      .trim()
+      .trim(),
   };
 
   $.ajax('/api/user', {
     type: 'POST',
-    data: userLogin
+    data: userLogin,
   }).then(function() {
     location.reload();
   });
@@ -24,25 +24,25 @@ var API = {
   searchTrucks: function(payload) {
     return $.ajax({
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       url: 'api/search',
       type: 'POST',
-      data: JSON.stringify(payload)
+      data: JSON.stringify(payload),
     });
   },
   getTrucks: function() {
     return $.ajax({
       url: 'api/trucks/limit',
-      type: 'GET'
+      type: 'GET',
     });
   },
   deleteTruck: function(id) {
     return $.ajax({
       url: 'api/trucks/' + id,
-      type: 'DELETE'
+      type: 'DELETE',
     });
-  }
+  },
 };
 
 function generateModalTemplate(truck) {
@@ -58,20 +58,20 @@ function generateModalTemplate(truck) {
   var $img = $('<img>').attr({
     class: 'img-fluid',
     src: truck.img_url,
-    alt: 'truck ' + truck.id
+    alt: 'truck ' + truck.id,
   });
   var $h3 = $('<h3>')
-    .addClass('text-white text-center')
+    .addClass('text-white text-center text-block')
     .text(truck.name);
   var $d5 = $('<div>')
-    .addClass('centered')
+    .addClass('bottom')
     .append($h3);
   var $d3b = $('<div>').append([$img, $d5]);
   var $d2 = $('<div>')
     .attr({
       class: 'portfolio-item mx-auto',
       'data-toggle': 'modal',
-      'data-target': '#portfolioModal' + truck.id
+      'data-target': '#portfolioModal' + truck.id,
     })
     .append([$d3a, $d3b]);
   var $d1 = $('<div>')
@@ -89,7 +89,7 @@ function generateModalData(truck) {
     var $itemList = $('<li>')
       .attr({
         'data-id': item.id,
-        class: 'list-group-item'
+        class: 'list-group-item',
       })
       .append($itemSpan);
     $items.push($itemList);
@@ -154,7 +154,7 @@ function generateModalData(truck) {
       class: 'close',
       type: 'button',
       'data-dismiss': 'modal',
-      'aria-label': 'Close'
+      'aria-label': 'Close',
     })
     .append($ispan);
 
@@ -171,7 +171,7 @@ function generateModalData(truck) {
       class: 'portfolio-modal modal fade list-group',
       id: 'portfolioModal' + truck.id,
       tabindex: '-1',
-      role: 'dialog'
+      role: 'dialog',
     })
     .append($d2);
 
@@ -197,7 +197,7 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var payload = {
-    term: $('#search-term').val()
+    term: $('#search-term').val(),
   };
 
   API.searchTrucks(payload).then(function(data) {
