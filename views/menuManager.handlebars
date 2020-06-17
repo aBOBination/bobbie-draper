@@ -2,19 +2,17 @@
 <html>
 
 <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <title>Food Truck Frenzy</title>
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../css/styles.css" rel="stylesheet" type="text/css">
-        <!-- Fonts CSS-->
-        <link rel="stylesheet" href="../css/heading.css" type="text/css">
-        <link rel="stylesheet" href="../css/body.css" type="text/css">
-
-    </head>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Food Truck Frenzy</title>
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="../css/styles.css" rel="stylesheet" type="text/css">
+  <!-- Fonts CSS-->
+  <link rel="stylesheet" href="../css/heading.css" type="text/css">
+  <link rel="stylesheet" href="../css/body.css" type="text/css">
+</head>
 
 <body>
   <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
@@ -39,28 +37,21 @@
 </nav>
 <header class="masthead bg-primary text-white text-center">
   <div class="container d-flex align-items-center flex-column">
-    <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="assets/img/photoheader.jpg" alt="">
+    {{!-- <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="assets/img/photoheader.jpg" alt=""> --}}
     <!-- Masthead Heading-->
     <h1 id="{{truck.dataValues.id}}" class="masthead-heading mb-0 truck-id">{{truck.dataValues.name}}</h1>
+    <br>
     <form class="clearfix mb-4" action="POST">
       <div class="form-group">
-        <label for="item-name">Add Item</label>
+        <label for="item-name"></label>
         <input type="text" id="item-name" class="form-control" aria-describedby="item-name"
           placeholder="Enter an item.">
-          <label for="item-price">Price</label>
+          <label for="item-price"></label>
         <input type="text" id="item-price" class="form-control" aria-describedby="item-price"
-          placeholder="Enter a price.">
+          placeholder="Enter a price $.">
       </div>
       <button id="submit" class="btn btn-primary float-center">Submit</button>
     </form>
-    <!-- Icon Divider-->
-    <div class="divider-custom divider-light">
-      <div class="divider-custom-line"></div>
-      <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-      <div class="divider-custom-line"></div>
-    </div>
-    <!-- Masthead Subheading-->
-    <p class="pre-wrap masthead-subheading font-weight-light mb-0">Finding a food truck just got easier!</p>
   </div>
 </header>
 <section class="page-section portfolio" id="portfolio">
@@ -81,7 +72,6 @@
       <li data-id="{{dataValues.id}}" truck-id="{{dataValues.truckId}}" class="list-group-item">
         <span>{{dataValues.name}}: ${{dataValues.price}}  <button class="btn btn-danger float-right delete">ｘ</button></span>
       </li>
-
       {{/each}}
     </ul>
     <div class="row justify-content-center">
@@ -164,7 +154,6 @@
       {{!-- LISTING --}}
       <div class="group-list">
         <div class="container"></div>
-
       </div>
 
       <!-- About Section Heading-->
