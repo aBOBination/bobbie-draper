@@ -17,7 +17,6 @@
       </ul>
     </div>
   </div>
-<<<<<<< HEAD
   <div class="mainLogin">
       <h6>Login to your account</h6>
       <form>
@@ -29,21 +28,6 @@
     </div>
     </div>
     <!--end log form -->
-=======
-  {{!-- <div class="container">
-    <div class="col-4-lg text-right log-form"> --}}
-  <div class="mainLogin">
-    <h6>Login to your account</h6>
-    <form>
-      <input type="text" title="username" id="username" placeholder="username" />
-      <input type="password" title="password" id="password" placeholder="password" />
-      <button type="submit" class="btn" id="loginBtn">Login</button>
-      <a class="register text-sm" id="register" href="/register">Register</a>
-    </form>
-  </div>
-  </div>
-  <!--end log form -->
->>>>>>> 80b788c74be3beecd815f84abd4776bc7b68c1ec
   </div>
 </nav>
 <header class="masthead bg-primary text-white text-center">
@@ -75,7 +59,6 @@
     <!-- Food Truck Results Section Heading-->
     <div class="text-center">
       <h2 class="page-section-heading text-secondary mb-0 d-inline-block">FOOD TRUCK ROUNDUP</h2>
-<<<<<<< HEAD
     
     <!-- Icon Divider-->
     <div class="divider-custom">
@@ -119,55 +102,6 @@
                 </ul>
                 <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close
                   Window</button>
-=======
-
-      <!-- Icon Divider-->
-      <div class="divider-custom">
-        <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-        <div class="divider-custom-line"></div>
-      </div>
-    </div>
-    <div id="truck-list">
-      <div class="col-md-12 d-flex justify-content-center mb-5" id="truck-list"></div>
-      {{#each trucks}}
-      {{!-- Modal Results for each --}}
-      <div class="portfolio-modal modal fade list-group" id="portfolioModal{{dataValues.id}}" tabindex="-1"
-        role="dialog" aria-labelledby="#portfolioModal{{dataValues.id}}Label" aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
-          <div class="modal-content">
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i
-                  class="fas fa-times"></i></span></button>
-            <div class="modal-body text-center">
-              <div class="container">
-                <div class="row justify-content-center">
-                  <div class="col-lg-8">
-                    <!-- Results Modal - Title-->
-                    <h2 class="portfolio-modal-title text-secondary mb-0">{{dataValues.name}}</h2>
-                    <!-- Icon Divider-->
-                    <div class="divider-custom">
-                      <div class="divider-custom-line"></div>
-                      <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                      <div class="divider-custom-line"></div>
-                    </div>
-
-                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Mollitia neque assumenda
-                      ipsam
-                      nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae?
-                      Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                    <ul id="item-list" class="item-group">
-                      {{#each dataValues.menu_items}}
-                      <li data-id="{{dataValues.id}}" class="list-group-item">
-                        <span>{{dataValues.name}}: ${{dataValues.price}}</span>
-                      </li>
-                      {{/each}}
-                    </ul>
-                    <button class="btn btn-primary" href="#" data-dismiss="modal"><i
-                        class="fas fa-times fa-fw"></i>Close
-                      Window</button>
-                  </div>
-                </div>
->>>>>>> 80b788c74be3beecd815f84abd4776bc7b68c1ec
               </div>
             </div>
           </div>
@@ -213,28 +147,6 @@
           The food truck industry is flooding with creativity bringing a whole lot of happiness to their customers with
           the freedom of creating a variety of custom menus, and if you haven’t jumped on the food truck phenomenon. Now
           is your chance. Use Food Truck Frenzy to search out your first experience.</p>
-=======
-  </div>
-  {{/each}}
-</div>
-  </section>
-  <section class="page-section portfolio" id="portfolio">
-    <div class="container">
-      <!-- Portfolio Grid Items-->
-      <div id="truck-list-modal" class="row card-columns">
-        <!-- Portfolio Item 1-->
-      </div>
-  </section>
-  <section class="page-section bg-primary text-white mb-0" id="about">
-    <div class="container">
-      {{!-- LISTING --}}
-      <div class="group-list">
-        <div class="container"></div>
-      </div>
-      <!-- About Section Heading-->
-      <div class="text-center">
-        <h2 class="page-section-heading d-inline-block text-white">ABOUT</h2>
-        -----
       </div>
     </div>
   </div>
