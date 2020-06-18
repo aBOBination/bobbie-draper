@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
   <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top">FOOD TRUCK FRENZY</a>
     <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button"
@@ -18,6 +17,7 @@
       </ul>
     </div>
   </div>
+<<<<<<< HEAD
   <div class="mainLogin">
       <h6>Login to your account</h6>
       <form>
@@ -29,6 +29,21 @@
     </div>
     </div>
     <!--end log form -->
+=======
+  {{!-- <div class="container">
+    <div class="col-4-lg text-right log-form"> --}}
+  <div class="mainLogin">
+    <h6>Login to your account</h6>
+    <form>
+      <input type="text" title="username" id="username" placeholder="username" />
+      <input type="password" title="password" id="password" placeholder="password" />
+      <button type="submit" class="btn" id="loginBtn">Login</button>
+      <a class="register text-sm" id="register" href="/register">Register</a>
+    </form>
+  </div>
+  </div>
+  <!--end log form -->
+>>>>>>> 80b788c74be3beecd815f84abd4776bc7b68c1ec
   </div>
 </nav>
 <header class="masthead bg-primary text-white text-center">
@@ -60,6 +75,7 @@
     <!-- Food Truck Results Section Heading-->
     <div class="text-center">
       <h2 class="page-section-heading text-secondary mb-0 d-inline-block">FOOD TRUCK ROUNDUP</h2>
+<<<<<<< HEAD
     
     <!-- Icon Divider-->
     <div class="divider-custom">
@@ -103,12 +119,101 @@
                 </ul>
                 <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close
                   Window</button>
+=======
+
+      <!-- Icon Divider-->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line"></div>
+      </div>
+    </div>
+    <div id="truck-list">
+      <div class="col-md-12 d-flex justify-content-center mb-5" id="truck-list"></div>
+      {{#each trucks}}
+      {{!-- Modal Results for each --}}
+      <div class="portfolio-modal modal fade list-group" id="portfolioModal{{dataValues.id}}" tabindex="-1"
+        role="dialog" aria-labelledby="#portfolioModal{{dataValues.id}}Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+          <div class="modal-content">
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i
+                  class="fas fa-times"></i></span></button>
+            <div class="modal-body text-center">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-lg-8">
+                    <!-- Results Modal - Title-->
+                    <h2 class="portfolio-modal-title text-secondary mb-0">{{dataValues.name}}</h2>
+                    <!-- Icon Divider-->
+                    <div class="divider-custom">
+                      <div class="divider-custom-line"></div>
+                      <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                      <div class="divider-custom-line"></div>
+                    </div>
+
+                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Mollitia neque assumenda
+                      ipsam
+                      nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae?
+                      Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                    <ul id="item-list" class="item-group">
+                      {{#each dataValues.menu_items}}
+                      <li data-id="{{dataValues.id}}" class="list-group-item">
+                        <span>{{dataValues.name}}: ${{dataValues.price}}</span>
+                      </li>
+                      {{/each}}
+                    </ul>
+                    <button class="btn btn-primary" href="#" data-dismiss="modal"><i
+                        class="fas fa-times fa-fw"></i>Close
+                      Window</button>
+                  </div>
+                </div>
+>>>>>>> 80b788c74be3beecd815f84abd4776bc7b68c1ec
               </div>
             </div>
           </div>
         </div>
       </div>
+      {{/each}}
     </div>
+</section>
+<section class="page-section portfolio" id="portfolio">
+  <div class="container">
+    <!-- Portfolio Grid Items-->
+    <div id="truck-list-modal" class="row">
+      <!-- Portfolio Item 1-->
+    </div>
+</section>
+<section class="page-section bg-primary text-white mb-0" id="about">
+  <div class="container">
+    {{!-- LISTING --}}
+    <div class="group-list">
+      <div class="container"></div>
+    </div>
+    <!-- About Section Heading-->
+    <div class="text-center">
+      <h2 class="page-section-heading d-inline-block text-white">ABOUT</h2>
+    </div>
+    <!-- Icon Divider-->
+    <div class="divider-custom divider-light">
+      <div class="divider-custom-line"></div>
+      <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+      <div class="divider-custom-line"></div>
+    </div>
+    <!-- About Section Content-->
+    <div class="row">
+      <div class="col-lg-12 ml-auto">
+        <p class="pre-wrap lead">The history of Food Trucks dates back to the 19th century, changing and evolving with
+          the times. The phenomenon of today offers unique experiences to their patrons. You can see the creativity not
+          only through the colorful and vibrant truck but expressed in their unique flavors and quality food. With their
+          mobility, it can be hard to keep track of the next food truck location. With our help locating the future site
+          of your favorite food truck or even the next gathering of food trucks just got easier.
+          So, why food trucks? Many of us tire of the same boring foods and the same menu items. So, who is in the mood
+          for something different? I know we are. Now you can find food trucks in your area or search the location of
+          your favorite truck with a click of a button.
+          The food truck industry is flooding with creativity bringing a whole lot of happiness to their customers with
+          the freedom of creating a variety of custom menus, and if you haven’t jumped on the food truck phenomenon. Now
+          is your chance. Use Food Truck Frenzy to search out your first experience.</p>
+=======
   </div>
   {{/each}}
 </div>
@@ -129,97 +234,84 @@
       <!-- About Section Heading-->
       <div class="text-center">
         <h2 class="page-section-heading d-inline-block text-white">ABOUT</h2>
+        -----
       </div>
-      <!-- Icon Divider-->
-      <div class="divider-custom divider-light">
-        <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-        <div class="divider-custom-line"></div>
+    </div>
+  </div>
+</section>
+<section class="page-section" id="contact">
+  <div class="container">
+    <!-- Contact Section Heading-->
+    <div class="text-center">
+      <h2 class="page-section-heading text-secondary d-inline-block mb-0">CONTACT</h2>
+    </div>
+    <!-- Icon Divider-->
+    <div class="divider-custom">
+      <div class="divider-custom-line"></div>
+      <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+      <div class="divider-custom-line"></div>
+    </div>
+    <!-- Contact Section Content-->
+    <div class="row justify-content-center">
+      <div class="col-lg-4">
+        <div class="d-flex flex-column align-items-center">
+          <div class="icon-contact mb-3"><i class="fas fa-mobile-alt"></i></div>
+          <div class="text-muted">Phone</div>
+          <div class="lead font-weight-bold">(555) 555-5555</div>
+        </div>
       </div>
-      <!-- About Section Content-->
-      <div class="row">
-        <div class="col-lg-12 ml-auto">
-          <p class="pre-wrap lead">The history of Food Trucks dates back to the 19th century, changing and evolving with the times. The phenomenon of today offers unique experiences to their patrons. You can see the creativity not only through the colorful and vibrant truck but expressed in their unique flavors and quality food. With their mobility, it can be hard to keep track of the next food truck location. With our help locating the future site of your favorite food truck or even the next gathering of food trucks just got easier.
-          So, why food trucks? Many of us tire of the same boring foods and the same menu items. So, who is in the mood for something different? I know we are. Now you can find food trucks in your area or search the location of your favorite truck with a click of a button.
-          The food truck industry is flooding with creativity bringing a whole lot of happiness to their customers with the freedom of creating a variety of custom menus, and if you haven’t jumped on the food truck phenomenon. Now is your chance. Use Food Truck Frenzy to search out your first experience.</p>
+      <div class="col-lg-4">
+        <div class="d-flex flex-column align-items-center">
+          <div class="icon-contact mb-3"><i class="far fa-envelope"></i></div>
+          <div class="text-muted">Email</div><a class="lead font-weight-bold"
+            href="mailto:thefoodie@foodtruckfrenzy.com">thefoodie@foodtruckfrenzy.com</a>
         </div>
       </div>
     </div>
-  </section>
-  <section class="page-section" id="contact">
-    <div class="container">
-      <!-- Contact Section Heading-->
-      <div class="text-center">
-        <h2 class="page-section-heading text-secondary d-inline-block mb-0">CONTACT</h2>
+  </div>
+</section>
+<footer class="footer text-center">
+  <div class="container">
+    <div class="row">
+      <!-- Footer Location-->
+      <div class="col-lg-4 mb-5 mb-lg-0">
+        <h4 class="mb-4">LOCATION</h4>
+        <p class="pre-wrap lead mb-0">123 Roaming Foodie, UT 84101</p>
       </div>
-      <!-- Icon Divider-->
-      <div class="divider-custom">
-        <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-        <div class="divider-custom-line"></div>
+      <!-- Footer Social Icons-->
+      <div class="col-lg-4 mb-5 mb-lg-0">
+        <h4 class="mb-4">AROUND THE WEB</h4><a class="btn btn-outline-light btn-social mx-1"
+          href="https://www.facebook.com/StartBootstrap"><i class="fab fa-fw fa-facebook-f"></i></a><a
+          class="btn btn-outline-light btn-social mx-1" href="https://www.twitter.com/sbootstrap"><i
+            class="fab fa-fw fa-twitter"></i></a><a class="btn btn-outline-light btn-social mx-1"
+          href="https://www.linkedin.com/in/startbootstrap"><i class="fab fa-fw fa-linkedin-in"></i></a><a
+          class="btn btn-outline-light btn-social mx-1" href="https://www.dribble.com/startbootstrap"><i
+            class="fab fa-fw fa-dribbble"></i></a>
       </div>
-      <!-- Contact Section Content-->
-      <div class="row justify-content-center">
-        <div class="col-lg-4">
-          <div class="d-flex flex-column align-items-center">
-            <div class="icon-contact mb-3"><i class="fas fa-mobile-alt"></i></div>
-            <div class="text-muted">Phone</div>
-            <div class="lead font-weight-bold">(555) 555-5555</div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="d-flex flex-column align-items-center">
-            <div class="icon-contact mb-3"><i class="far fa-envelope"></i></div>
-            <div class="text-muted">Email</div><a class="lead font-weight-bold"
-              href="mailto:thefoodie@foodtruckfrenzy.com">thefoodie@foodtruckfrenzy.com</a>
-          </div>
-        </div>
+      <!-- Footer About Text-->
+      <div class="col-lg-4">
+        <h4 class="mb-4">ABOUT FOOD TRUCK FRENZY</h4>
+        <p class="pre-wrap lead mb-0">Food Trucks add their truck, menu and locations. Users can search for food trucks
+          in their area.</p>
       </div>
     </div>
-  </section>
-  <footer class="footer text-center">
-    <div class="container">
-      <div class="row">
-        <!-- Footer Location-->
-        <div class="col-lg-4 mb-5 mb-lg-0">
-          <h4 class="mb-4">LOCATION</h4>
-          <p class="pre-wrap lead mb-0">123 Roaming Foodie, UT 84101</p>
-        </div>
-        <!-- Footer Social Icons-->
-        <div class="col-lg-4 mb-5 mb-lg-0">
-          <h4 class="mb-4">AROUND THE WEB</h4><a class="btn btn-outline-light btn-social mx-1"
-            href="https://www.facebook.com/StartBootstrap"><i class="fab fa-fw fa-facebook-f"></i></a><a
-            class="btn btn-outline-light btn-social mx-1" href="https://www.twitter.com/sbootstrap"><i
-              class="fab fa-fw fa-twitter"></i></a><a class="btn btn-outline-light btn-social mx-1"
-            href="https://www.linkedin.com/in/startbootstrap"><i class="fab fa-fw fa-linkedin-in"></i></a><a
-            class="btn btn-outline-light btn-social mx-1" href="https://www.dribble.com/startbootstrap"><i
-              class="fab fa-fw fa-dribbble"></i></a>
-        </div>
-        <!-- Footer About Text-->
-        <div class="col-lg-4">
-          <h4 class="mb-4">ABOUT FOOD TRUCK FRENZY</h4>
-          <p class="pre-wrap lead mb-0">Food Trucks add their truck, menu and locations. Users can search for food
-            trucks in their area.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- Copyright Section-->
-  <section class="copyright py-4 text-center text-white">
-    <div class="container"><small class="pre-wrap">Copyright © Food Truck Frenzy 2020</small></div>
-  </section>
-  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
-  <div class="scroll-to-top d-lg-none position-fixed"><a
-      class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i
-        class="fa fa-chevron-up"></i></a></div>
-  <!-- Bootstrap core JS-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-  <!-- Third party plugin JS-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-  <!-- Contact form JS-->
-  <script src="assets/mail/jqBootstrapValidation.js"></script>
-  <script src="assets/mail/contact_me.js"></script>
-  <!-- Core theme JS-->
-  <script src="js/scripts.js"></script>
-  <script src="js/index.js"></script>
+  </div>
+</footer>
+<!-- Copyright Section-->
+<section class="copyright py-4 text-center text-white">
+  <div class="container"><small class="pre-wrap">Copyright © Food Truck Frenzy 2020</small></div>
+</section>
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
+<div class="scroll-to-top d-lg-none position-fixed"><a class="js-scroll-trigger d-block text-center text-white rounded"
+    href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
+<!-- Bootstrap core JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<!-- Third party plugin JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<!-- Contact form JS-->
+<script src="assets/mail/jqBootstrapValidation.js"></script>
+<script src="assets/mail/contact_me.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+<script src="js/index.js"></script>
