@@ -10667,7 +10667,7 @@ form .row:first-child .floating-label-form-group {
   display:block;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: rgb(0, 0, 0);
   display: block;
 }
 #loginBtn:hover {
