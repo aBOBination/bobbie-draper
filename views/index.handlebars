@@ -18,15 +18,15 @@
       </ul>
     </div>
   </div>
-  <div class="container">
-    <div class="  col-4-lg text-center log-form">
-      <h2>Login to your account</h2>
+  <div class="mainLogin">
+      <h6>Login to your account</h6>
       <form>
         <input type="text" title="username" id="username" placeholder="username" />
         <input type="password" title="password" id="password" placeholder="password" />
         <button type="submit" class="btn" id="loginBtn">Login</button>
         <a class="register text-sm" href="/register">Register</a>
       </form>
+    </div>
     </div>
     <!--end log form -->
   </div>
@@ -60,7 +60,7 @@
     <!-- Food Truck Results Section Heading-->
     <div class="text-center">
       <h2 class="page-section-heading text-secondary mb-0 d-inline-block">FOOD TRUCK ROUNDUP</h2>
-    </div>
+    
     <!-- Icon Divider-->
     <div class="divider-custom">
       <div class="divider-custom-line"></div>
@@ -69,9 +69,6 @@
     </div>
   </div>
   <div id="truck-list">
-  </div>
-  </div>
-  </div>
 <div class="col-md-12 d-flex justify-content-center mb-5" id="truck-list"></div>
   {{#each trucks}}
   {{!-- Modal Results for each --}}
@@ -102,7 +99,6 @@
                   <li data-id="{{dataValues.id}}" class="list-group-item">
                     <span>{{dataValues.name}}: ${{dataValues.price}}</span>
                   </li>
-
                   {{/each}}
                 </ul>
                 <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close
