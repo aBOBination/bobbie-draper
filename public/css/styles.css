@@ -10713,3 +10713,10 @@ color: white;
 .mainLogin {
   padding-left: 30px;
 }
+#truck-list-modal {
+  display: inline-block;
+}
+
+.card {
+  border: none;
+}
