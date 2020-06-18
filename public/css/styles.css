@@ -45,6 +45,23 @@
   box-sizing: border-box;
 }
 
+.containers {
+  position: relative;
+  width: 100px; /* Maximum width */
+  margin: 0 auto; /* Center it */
+}
+.text-block {
+  /* position: relative; */
+  bottom: 50px;
+  /* background: #00cfd5; */
+  border-bottom-right-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
+  background: #1f2d41;
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -10616,4 +10633,56 @@ form .row:first-child .floating-label-form-group {
 
 .btn-social {
   margin-bottom: 0.5rem;
+}
+
+.inline {
+  display:inline-block;
+  margin-right:5px;
+  padding: 6px 12px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0.125rem solid #ced4da;
+  border-radius: 0.5rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#creatAccBtn {
+  max-width: 13.5rem;
+}
+#loginAccBtn {
+  max-width: 13.5rem;
+}
+#regPass {
+  max-width: 13.5rem;
+}
+#regUser {
+  width: 13.5rem;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  display: block;
+}
+
+login {
+  display: flex;
+  height: 5rem;
+  width: 5rem;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  background-color: #1f2d41;
+  color: #fff;
+  border-radius: 100%;
+}
+
+#truck-list-modal {
+  display: inline-block;
+}
+
+.card {
+  border: none;
 }

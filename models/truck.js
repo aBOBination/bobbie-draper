@@ -1,13 +1,13 @@
 module.exports = function(sequelize, DataTypes) {
   var Truck = sequelize.define('trucks', {
     name: DataTypes.STRING,
-    street1: DataTypes.STRING,
-    street2: DataTypes.STRING,
+    description: DataTypes.TEXT,
     city: DataTypes.STRING,
     state: DataTypes.STRING,
-    postcode: DataTypes.STRING,
     country: DataTypes.STRING,
-    phone_number: DataTypes.STRING
+    phone_number: DataTypes.STRING,
+    website: DataTypes.STRING,
+    img_url: DataTypes.STRING
   });
 
   // Truck.associate = function(models) {
