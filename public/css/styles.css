@@ -10635,8 +10635,8 @@ form .row:first-child .floating-label-form-group {
   margin-bottom: 0.5rem;
 }
 
-.inline {
-  display:inline-block;
+.block {
+  display:block;
   margin-right:5px;
   padding: 6px 12px;
   font-size: 1rem;
@@ -10652,33 +10652,66 @@ form .row:first-child .floating-label-form-group {
 
 #creatAccBtn {
   max-width: 13.5rem;
+  
 }
 #loginAccBtn {
   max-width: 13.5rem;
 }
 #regPass {
   max-width: 13.5rem;
+  display:block;
+  margin-top: 8px; 
 }
 #regUser {
   width: 13.5rem;
+  display:block;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: rgb(0, 0, 0);
   display: block;
 }
-
-login {
-  display: flex;
-  height: 5rem;
-  width: 5rem;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  background-color: #1f2d41;
-  color: #fff;
-  border-radius: 100%;
+#loginBtn:hover {
+background-color: #1f2d41;
+font-size: small;
+color: white;
 }
-
+#loginBtn {
+  font-size: small;
+}
+#register {
+  font-size: small;
+}
+#username {
+  width: 125px;
+  margin-right:5px;
+  padding: 6px 12px;
+  font-size: .8rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0.125rem solid #ced4da;
+  border-radius: 0.5rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+#password {
+  width: 125px;
+  margin-right:5px;
+  padding: 6px 12px;
+  font-size: .8rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0.125rem solid #ced4da;
+  border-radius: 0.5rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.mainLogin {
+  padding-left: 30px;
+}
 #truck-list-modal {
   display: inline-block;
 }
