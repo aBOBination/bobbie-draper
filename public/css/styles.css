@@ -10667,18 +10667,6 @@ form .row:first-child .floating-label-form-group {
   display: block;
 }
 
-login {
-  display: flex;
-  height: 5rem;
-  width: 5rem;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  background-color: #1f2d41;
-  color: #fff;
-  border-radius: 100%;
-}
-
 #truck-list-modal {
   display: inline-block;
 }
