@@ -1,6 +1,6 @@
-$('#creatAccBtn').on('click', function(event) {
+$('#createAccount').on('click', function(event) {
   event.preventDefault();
-  
+
   var newUserLogin = {
     username: $('#regUser')
       .val()
@@ -9,9 +9,8 @@ $('#creatAccBtn').on('click', function(event) {
       .val()
       .trim()
   };
-
   $.ajax({
-    url: '/api/newUser/', 
+    url: '/api/newUser/',
     type: 'GET'
   }).then(function(response) {
     var existingUsers = [];
@@ -19,15 +18,14 @@ $('#creatAccBtn').on('click', function(event) {
       existingUsers.push(response[i].username);
     }
     if (existingUsers.includes(newUserLogin.username)) {
-      alert("Sorry, that username is taken.");
+      alert('Sorry, that username is taken.');
     } else {
       $.ajax('/api/newUser', {
         type: 'POST',
         data: newUserLogin
-      }).then(function () {
-        location.reload();
+      }).then(function() {
+        window.location.href = '/trucks';
       });
     }
   });
 });
-
