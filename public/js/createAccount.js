@@ -1,4 +1,4 @@
-$('#creatAccBtn').on('click', function(event) {
+$('#createAccount').on('click', function(event) {
   event.preventDefault();
 
   var newUserLogin = {
@@ -9,7 +9,7 @@ $('#creatAccBtn').on('click', function(event) {
       .val()
       .trim()
   };
-
+  console.log(newUserLogin);
   $.ajax({
     url: '/api/newUser/',
     type: 'GET'
@@ -25,7 +25,7 @@ $('#creatAccBtn').on('click', function(event) {
         type: 'POST',
         data: newUserLogin
       }).then(function() {
-        location.reload();
+        window.location.href = '/trucks';
       });
     }
   });
