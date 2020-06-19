@@ -20,103 +20,84 @@
 </nav>
 <header class="masthead bg-primary text-white text-center">
   <div class="container d-flex align-items-center flex-column">
-<br>
-<div class="cotainer">
-	<div class="  col-4-lg text-center log-form">
-<div class="container register-form">
-	<form>
-	<div class="form">
-		<div class="note">
-			<h1>Register</h1>
-			<br>
-		</div>
-		<div class="form-content">
-					<div class="form-group">
-						<input type="text" id="regUser" class="form-control float-center" placeholder="Your Username *"/>
-            {{msg}}
-					<div class="form-group">
-						<input type="text" id="regPass" class="form-control float-center" placeholder="Your Password *"/>
-					</div>
-		</div>
-    <div class="form-group">
-<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <h4 style="color:black" id="congrat">Congratulations!</h4>
-      <div class="modal-header text-center">
-        <div class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/trucks" id="creatModalBtn" data-dismiss="modal" style="color:teal" class="modal-title w-100 font-weight-bold">MANAGE FOOD TRUCK</a></div>
-        
-        {{!-- <button class="btn" id="creatModalBtn" data-dismiss="modal"><h5 style="color:teal" class="modal-title w-100 font-weight-bold">MANAGE FOOD TRUCK</h5></button> --}}
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+    <br>
+    <div class="cotainer">
+      <div class="  col-4-lg text-center log-form">
+        <div class="container register-form">
+          <form>
+            <div class="form">
+              <div class="note">
+                <h1>Register</h1>
+                <br>
+              </div>
+              <div class="form-content">
+                <div class="form-group">
+                  <input type="text" id="regUser" class="form-control float-center" placeholder="Your Username *" />
+                  {{msg}}
+                  <div class="form-group">
+                    <input type="text" id="regPass" class="form-control float-center" placeholder="Your Password *" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="text-center">
+                    <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal"
+                      data-target="#modalLoginForm" id="createAccount">Create Your Account</a>
+                  </div>
+                  <a href="/" id="loginAccBtn" class="btn btn-primary btn-block float-center">Have an account? Login</a>
+
+                </div>
+              </div>
+          </form>
+        </div>
       </div>
-      {{!-- <div class="modal-footer d-flex justify-content-center"> --}}
-        {{!-- <p class="end" style="color:black">Enjoy!</p> --}}
-      {{!-- </div> --}}
+    </div>
+</header>
+<footer class="footer text-center">
+  <div class="container">
+    <div class="row">
+      <!-- Footer Location-->
+      <div class="col-lg-4 mb-5 mb-lg-0">
+        <h4 class="mb-4">LOCATION</h4>
+        <p class="pre-wrap lead mb-0">123 Roaming Foodie, UT 84101</p>
+      </div>
+      <!-- Footer Social Icons-->
+      <div class="col-lg-4 mb-5 mb-lg-0">
+        <h4 class="mb-4">AROUND THE WEB</h4><a class="btn btn-outline-light btn-social mx-1"
+          href="https://www.facebook.com/StartBootstrap"><i class="fab fa-fw fa-facebook-f"></i></a><a
+          class="btn btn-outline-light btn-social mx-1" href="https://www.twitter.com/sbootstrap"><i
+            class="fab fa-fw fa-twitter"></i></a><a class="btn btn-outline-light btn-social mx-1"
+          href="https://www.linkedin.com/in/startbootstrap"><i class="fab fa-fw fa-linkedin-in"></i></a><a
+          class="btn btn-outline-light btn-social mx-1" href="https://www.dribble.com/startbootstrap"><i
+            class="fab fa-fw fa-dribbble"></i></a>
+      </div>
+      <!-- Footer About Text-->
+      <div class="col-lg-4">
+        <h4 class="mb-4">ABOUT FOOD TRUCK FRENZY</h4>
+        <p class="pre-wrap lead mb-0">Food Trucks add their truck, menu and locations. Users can search for food trucks
+          in their area.</p>
+      </div>
     </div>
   </div>
-</div>
-
-<div class="text-center">
-  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm" id="createAccount">Create Your Account</a>
-</div>
-      <a href="/" id="loginAccBtn" class="btn btn-primary btn-block float-center">Have an account? Login</a>
-
-    </div>
-	</div>
-	</form>
-</div>
-</div>
-</div>
-</header>
-  <footer class="footer text-center">
-    <div class="container">
-      <div class="row">
-        <!-- Footer Location-->
-        <div class="col-lg-4 mb-5 mb-lg-0">
-          <h4 class="mb-4">LOCATION</h4>
-          <p class="pre-wrap lead mb-0">123 Roaming Foodie, UT 84101</p>
-        </div>
-        <!-- Footer Social Icons-->
-        <div class="col-lg-4 mb-5 mb-lg-0">
-          <h4 class="mb-4">AROUND THE WEB</h4><a class="btn btn-outline-light btn-social mx-1"
-            href="https://www.facebook.com/StartBootstrap"><i class="fab fa-fw fa-facebook-f"></i></a><a
-            class="btn btn-outline-light btn-social mx-1" href="https://www.twitter.com/sbootstrap"><i
-              class="fab fa-fw fa-twitter"></i></a><a class="btn btn-outline-light btn-social mx-1"
-            href="https://www.linkedin.com/in/startbootstrap"><i class="fab fa-fw fa-linkedin-in"></i></a><a
-            class="btn btn-outline-light btn-social mx-1" href="https://www.dribble.com/startbootstrap"><i
-              class="fab fa-fw fa-dribbble"></i></a>
-        </div>
-        <!-- Footer About Text-->
-        <div class="col-lg-4">
-          <h4 class="mb-4">ABOUT FOOD TRUCK FRENZY</h4>
-          <p class="pre-wrap lead mb-0">Food Trucks add their truck, menu and locations. Users can search for food trucks in their area.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- Copyright Section-->
-  <section class="copyright py-4 text-center text-white">
-    <div class="container"><small class="pre-wrap">Copyright © Food Truck Fenzy 2020</small></div>
-  </section>
-  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
-  <div class="scroll-to-top d-lg-none position-fixed"><a
-      class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i
-        class="fa fa-chevron-up"></i></a></div>
-  <!-- Bootstrap core JS-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-  <!-- Third party plugin JS-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-  <!-- Contact form JS-->
-  <script src="assets/mail/jqBootstrapValidation.js"></script>
-  <script src="assets/mail/contact_me.js"></script>
-  <!-- Core theme JS-->
-  {{!-- <script src="../js/scripts.js"></script>
+</footer>
+<!-- Copyright Section-->
+<section class="copyright py-4 text-center text-white">
+  <div class="container"><small class="pre-wrap">Copyright © Food Truck Fenzy 2020</small></div>
+</section>
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
+<div class="scroll-to-top d-lg-none position-fixed"><a class="js-scroll-trigger d-block text-center text-white rounded"
+    href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
+<!-- Bootstrap core JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<!-- Third party plugin JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<!-- Contact form JS-->
+<script src="assets/mail/jqBootstrapValidation.js"></script>
+<script src="assets/mail/contact_me.js"></script>
+<!-- Core theme JS-->
+{{!-- <script src="../js/scripts.js"></script>
   <script src="../js/menuManager.js"></script> --}}
-  <script src="../js/createAccount.js"></script>
+<script src="../js/createAccount.js"></script>
 </body>
 <!-- Font Awesome icons (free version)-->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
