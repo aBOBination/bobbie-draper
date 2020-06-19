@@ -10767,3 +10767,8 @@ form .row:first-child .floating-label-form-group {
   background-color: #009da2;
   color: #fff;
 }
+#edit-truck {
+  color: white;
+  font-size: x-small;
+  position: relative;
+}
