@@ -28,6 +28,13 @@ var API = {
       url: '../api/menu-items/' + id,
       type: 'DELETE'
     });
+  },
+  updateTruck: function(payload) {
+    return $.ajax({
+      url: '../api/trucks/',
+      type: 'PUT',
+      data: JSON.stringify(payload)
+    });
   }
 };
 // refreshTrucks gets new trucks from the db and repopulates the list
@@ -85,7 +92,41 @@ var handleDeleteBtnClick = function() {
   });
 };
 
+var handleEditBtnClick = function() {
+  var truckId = $(this).attr('data');
+  console.log(truckId);
+  API.getItems(truckId).then(function(data) {
+    $('#edit-name').attr({ placeholder: data.name });
+    $('#edit-state').attr({ placeholder: data.state });
+    $('#edit-country').attr({ placeholder: data.country });
+    $('#edit-phone').attr({ placeholder: data.phone });
+    $('#edit-description').attr({ placeholder: data.description });
+  });
+};
+
+var handleEditSubmit = function() {
+  var truckId = $(this).attr('data');
+  var name = $('#edit-name').attr('placeholder');
+  var state = $('#edit-state').attr('placeholder');
+  var country = $('#edit-country').attr('placeholder');
+  var phone = $('#edit-phone').attr('placeholder');
+  var description = $('#edit-description').attr('placeholder');
+  var payload = {
+    id: truckId,
+    name: name,
+    state: state,
+    country: country,
+    phone: phone,
+    description: description
+  };
+  API.updateTruck(payload).then(function() {
+    window.location.href = '/trucks/' + payload.truckId;
+  });
+};
+
 // Add event listeners to the submit and delete buttons
 refreshTrucks();
 $submitBtn.on('click', handleFormSubmit);
 $itemList.on('click', '.delete', handleDeleteBtnClick);
+$('#edit-truck').on('click', handleEditBtnClick);
+$('#edit-submit').on('click', handleEditSubmit);

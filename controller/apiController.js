@@ -96,6 +96,27 @@ router.get('/api/trucks/:id', function(req, res) {
   });
 });
 
+router.put('/api/trucks/', function(req, res) {
+  db.trucks
+    .update(
+      {
+        name: req.body.name,
+        state: req.body.state,
+        country: req.body.country,
+        phone: req.body.phone,
+        description: req.body.description
+      },
+      {
+        where: {
+          id: req.body.id
+        }
+      }
+    )
+    .then(function(data) {
+      res.json(data);
+    });
+});
+
 router.delete('/api/trucks/:id', function(req, res) {
   db.menu_items.destroy({ where: { truckId: req.params.id } }).then(function() {
     db.trucks.destroy({ where: { id: req.params.id } }).then(function(data) {
