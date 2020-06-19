@@ -10,25 +10,25 @@ var API = {
     console.log(payload);
     return $.ajax({
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       type: 'POST',
       url: 'api/trucks',
-      data: JSON.stringify(payload)
+      data: JSON.stringify(payload),
     });
   },
   getTrucks: function() {
     return $.ajax({
       url: 'api/trucks/',
-      type: 'GET'
+      type: 'GET',
     });
   },
   deleteTruck: function(id) {
     return $.ajax({
       url: 'api/trucks/' + id,
-      type: 'DELETE'
+      type: 'DELETE',
     });
-  }
+  },
 };
 
 // refreshTrucks gets new trucks from the db and repopulates the list
@@ -43,17 +43,17 @@ var refreshTrucks = function() {
         .text(payload.name)
         .attr({
           class: 'list-group-item',
-          'data-id': payload.id
+          'data-id': payload.id,
         });
       // .append($a);
 
       var $deleteButton = $('<button>')
-        .addClass('btn btn-danger float-right delete')
+        .addClass('btn btn-danger float-right delete block2')
         .text('ｘ');
 
       var $editButton = $('<a>')
         .attr('href', '/trucks/' + payload.id)
-        .addClass('btn btn-primary float-right edit')
+        .addClass('btn btn-primary float-right edit block2')
         .text('Edit');
 
       $li.append([$deleteButton, $editButton]);
@@ -72,7 +72,7 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var payload = {
-    name: $truckName.val().trim()
+    name: $truckName.val().trim(),
   };
   console.log(payload);
   // if (!truck.name) {
