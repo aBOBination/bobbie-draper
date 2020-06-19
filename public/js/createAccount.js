@@ -9,7 +9,6 @@ $('#createAccount').on('click', function(event) {
       .val()
       .trim()
   };
-  console.log(newUserLogin);
   $.ajax({
     url: '/api/newUser/',
     type: 'GET'
