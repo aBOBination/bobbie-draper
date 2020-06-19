@@ -1,5 +1,5 @@
 //Login functionality
-$('#loginBtn').on('click', function(event) {
+$('#loginBtn').on('click', function (event) {
   event.preventDefault();
 
   var userLogin = {
@@ -10,12 +10,28 @@ $('#loginBtn').on('click', function(event) {
       .val()
       .trim()
   };
-
-  $.ajax('/api/user', {
-    type: 'POST',
-    data: userLogin
-  }).then(function() {
-    location.reload();
+  $.ajax({
+    url: '/api/users/',
+    type: 'GET'
+  }).then(function (response) {
+    var existingUsers = [];
+    var existingPasswords = [];
+    for (var i = 0; i < response.length; i++) {
+      existingUsers.push(response[i].username);
+      existingPasswords.push(response[i].password);
+    }
+    if (existingUsers.includes(userLogin.username)) {
+      var userIndex = existingUsers.indexOf(userLogin.username)
+      console.log(existingPasswords[userIndex]);
+      var existingPassword = existingPasswords[userIndex]
+      if(userLogin.password === existingPassword) {
+        window.location.href = '/trucks';
+      } else {
+        alert("Sorry!  Username and password do not match.")
+      }
+    } else {
+      alert("That username does not exist.")
+    }
   });
 });
 
