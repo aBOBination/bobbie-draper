@@ -33,7 +33,7 @@ var API = {
     return $.ajax({
       url: '../api/trucks/',
       type: 'PUT',
-      data: JSON.stringify(payload)
+      data: payload
     });
   }
 };
@@ -94,33 +94,38 @@ var handleDeleteBtnClick = function() {
 
 var handleEditBtnClick = function() {
   var truckId = $(this).attr('data');
-  console.log(truckId);
   API.getItems(truckId).then(function(data) {
-    $('#edit-name').attr({ placeholder: data.name });
-    $('#edit-state').attr({ placeholder: data.state });
-    $('#edit-country').attr({ placeholder: data.country });
-    $('#edit-phone').attr({ placeholder: data.phone });
-    $('#edit-description').attr({ placeholder: data.description });
+    console.log(data);
+    $('#edit-name').val(data.name);
+    $('#edit-city').val(data.city);
+    $('#edit-state').val(data.state);
+    $('#edit-country').val(data.country);
+    $('#edit-phone').val(data.phone_number);
+    $('#edit-description').val(data.description);
   });
 };
 
 var handleEditSubmit = function() {
-  var truckId = $(this).attr('data');
-  var name = $('#edit-name').attr('placeholder');
-  var state = $('#edit-state').attr('placeholder');
-  var country = $('#edit-country').attr('placeholder');
-  var phone = $('#edit-phone').attr('placeholder');
-  var description = $('#edit-description').attr('placeholder');
+  var id = $('#edit-submit').attr('data');
+  var name = $('#edit-name').val();
+  var city = $('#edit-city').val();
+  var state = $('#edit-state').val();
+  var country = $('#edit-country').val();
+  var phone = $('#edit-phone').val();
+  var description = $('#edit-description').val();
   var payload = {
-    id: truckId,
+    id: id,
     name: name,
+    city: city,
     state: state,
     country: country,
-    phone: phone,
+    phone_number: phone,
     description: description
   };
+
   API.updateTruck(payload).then(function() {
-    window.location.href = '/trucks/' + payload.truckId;
+    console.log(payload);
+    // window.location.href = '/trucks/' + payload.id;
   });
 };
 

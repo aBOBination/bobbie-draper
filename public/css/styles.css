@@ -10476,8 +10476,8 @@ a.text-dark:focus {
 
 @media (min-width: 992px) {
   .masthead {
-    padding-top: calc(6rem + 104px);
-    padding-bottom: 6rem;
+    padding-top: calc(3rem + 144px);
+    padding-bottom: 3rem;
   }
   .masthead .masthead-heading {
     font-size: 4rem;
@@ -10652,7 +10652,7 @@ form .row:first-child .floating-label-form-group {
 
 #creatAccBtn {
   max-width: 13.5rem;
-  
+
 }
 #loginAccBtn {
   max-width: 13.5rem;
@@ -10660,7 +10660,7 @@ form .row:first-child .floating-label-form-group {
 #regPass {
   max-width: 13.5rem;
   display:block;
-  margin-top: 8px; 
+  margin-top: 8px;
 }
 #regUser {
   width: 13.5rem;
