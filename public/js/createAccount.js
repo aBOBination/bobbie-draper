@@ -10,7 +10,7 @@ $('#createAccount').on('click', function(event) {
       .trim()
   };
   $.ajax({
-    url: '/api/newUser/',
+    url: '/api/users/',
     type: 'GET'
   }).then(function(response) {
     var existingUsers = [];
