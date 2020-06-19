@@ -67,7 +67,7 @@ router.get('/api/trucks/:id', function(req, res) {
 });
 
 router.get('/api/newUser', function(req, res) {
-  db.users.findAll({}).then(function (data) {
+  db.users.findAll({}).then(function(data) {
     res.json(data);
   });
 });
@@ -119,6 +119,27 @@ router.get('/api/trucks/:id', function(req, res) {
   db.trucks.update({ where: { id: req.params.id } }).then(function(data) {
     res.json(data);
   });
+});
+
+router.put('/api/trucks/', function(req, res) {
+  db.trucks
+    .update(
+      {
+        name: req.body.name,
+        state: req.body.state,
+        country: req.body.country,
+        phone: req.body.phone,
+        description: req.body.description
+      },
+      {
+        where: {
+          id: req.body.id
+        }
+      }
+    )
+    .then(function(data) {
+      res.json(data);
+    });
 });
 
 router.delete('/api/trucks/:id', function(req, res) {
