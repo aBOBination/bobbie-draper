@@ -67,7 +67,7 @@ router.get('/api/trucks/:id', function(req, res) {
 });
 
 router.get('/api/users', function(req, res) {
-  db.users.findAll({}).then(function (data) {
+  db.users.findAll({}).then(function(data) {
     res.json(data);
   });
 });
@@ -101,9 +101,10 @@ router.put('/api/trucks/', function(req, res) {
     .update(
       {
         name: req.body.name,
+        city: req.body.city,
         state: req.body.state,
         country: req.body.country,
-        phone: req.body.phone,
+        phone_number: req.body.phone_number,
         description: req.body.description
       },
       {

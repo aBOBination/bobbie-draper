@@ -22,7 +22,7 @@
   <div class="container">
     <!-- Portfolio Section Heading-->
     <div class="text-center">
-      <h2 class="page-section-heading text-secondary mb-0 d-inline-block padding_top">YOUR TRUCKS</h2>
+      <h2 class="page-section-heading text-secondary mb-0 d-inline-block">YOUR TRUCKS</h2>
     </div>
     <!-- Icon Divider-->
     <div class="divider-custom">
@@ -32,14 +32,7 @@
     </div>
     <!-- Portfolio Grid Items-->
     <ul id="truck-list" class="list-group">
-      {{#each trucks}}
-      <li data-id="{{this.id}}" class="list-group-item">
-        {{this.name}}
-        <a href="/trucks/{{this.id}}" class="btn btn-info" role="button">Link Button</a>
-        <button style="margin: 5px;" class="btn btn-primary float-center edit block">Edit</button>
-        <button style="margin: 5px;" class="btn btn-danger float-right delete block">ｘ</button>
-      </li>
-      {{/each}}
+
     </ul>
     <div class="row justify-content-center">
       <!-- Portfolio Items-->
@@ -54,67 +47,6 @@
   </div>
   </div>
   </div>
-  </div>
-  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog"
-    aria-labelledby="#portfolioModal1Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i
-              class="fas fa-times"></i></span></button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title-->
-                <h2 class="portfolio-modal-title text-secondary mb-0">Mark's Muffins</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                  <div class="divider-custom-line"></div>
-                </div>
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Mollitia neque assumenda ipsam
-                  nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae?
-                  Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close
-                  Window</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog"
-    aria-labelledby="#portfolioModal5Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i
-              class="fas fa-times"></i></span></button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title-->
-                <h2 class="portfolio-modal-title text-secondary mb-0">Bob's Burgers</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                  <div class="divider-custom-line"></div>
-                </div>
-                <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src="assets/img/portfolio/truch7.jpg"
-                  alt="Bob's Burgers" />
-                <!-- Portfolio Modal - Text-->
-                <p class="mb-5">New Image Description</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close
-                  Window</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
   <section class="page-section bg-primary text-white mb-0" id="about">
     <div class="container">
@@ -136,10 +68,7 @@
       <!-- About Section Content-->
       <div class="row">
         <div class="col-lg-12 ml-auto">
-          <p class="pre-wrap lead">The upkeep of a website, creating a campaign to keep customers up-to-date on your
-            location, and finding the time to keep it all active can get pretty expensive. Here at Food Truck Frenzy, we
-            have created a way for food truck owners to go to one site to create an online presence, advertise their
-            dynamic menus, and keep customers up-to-date on their location.</p>
+        <p class="pre-wrap lead">The upkeep of a website, creating a campaign to keep customers up-to-date on your location, and finding the time to keep it all active can get pretty expensive. Here at Food Truck Frenzy, we have created a way for food truck owners to go to one site to create an online presence, advertise their dynamic menus, and keep customers up-to-date on their location.</p>
         </div>
       </div>
     </div>
@@ -196,13 +125,11 @@
         <!-- Footer About Text-->
         <div class="col-lg-4">
           <h4 class="mb-4">ABOUT FOOD TRUCK FRENZY</h4>
-          <p class="pre-wrap lead mb-0">Food Trucks add their truck, menu and locations. Users can search for food
-            trucks in their area.</p>
+          <p class="pre-wrap lead mb-0">Food Trucks add their truck, menu and locations. Users can search for food trucks in their area.</p>
         </div>
       </div>
     </div>
   </footer>
-
   <!-- Copyright Section-->
   <section class="copyright py-4 text-center text-white">
     <div class="container"><small class="pre-wrap">Copyright © Your Website 2020</small></div>
@@ -210,8 +137,7 @@
   <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
   <div class="scroll-to-top d-lg-none position-fixed"><a
       class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i
-        class="fa fa-chevron-up"></i></a></div>
-  
+      class="fa fa-chevron-up"></i></a></div>
   <!-- Bootstrap core JS-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
