@@ -447,7 +447,7 @@ h6,
 }
 
 .lead {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 300;
 }
 
@@ -7970,6 +7970,7 @@ button.bg-dark:focus {
 .pt-0,
 .py-0 {
   padding-top: 0 !important;
+  margin-bottom: 1.4rem;
 }
 
 .pr-0,
@@ -10322,7 +10323,7 @@ a.text-dark:focus {
   }
 }
 .page-section {
-  padding: 6rem 0;
+  padding: 3rem 0;
 }
 .page-section .page-section-heading {
   font-size: 2.25rem;
@@ -10375,9 +10376,9 @@ a.text-dark:focus {
 .btn-social {
   border-radius: 100%;
   display: inline-flex;
-  width: 3.25rem;
-  height: 3.25rem;
-  font-size: 1.25rem;
+  width: 2rem;
+  height: 2rem;
+  font-size: .9rem;
   justify-content: center;
   align-items: center;
 }
@@ -10584,8 +10585,8 @@ form .row:first-child .floating-label-form-group {
 }
 
 .footer {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   background-color: #00cfd5;
   color: #fff;
 }
