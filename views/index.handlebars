@@ -2,14 +2,79 @@
   <a src="public/assets/img/food_truck_logo_blue.png"></a>
   <div class="container"><a class="navbar-brand js-scroll-trigger" href="/">FOOD TRUCK FRENZY</a>
   </div>
-  <div class="mainLogin">
+  {{!-- <div class="mainLogin">
     <h6>Login to your account</h6>
     <form>
       <input type="text" title="username" id="username" placeholder="username" />
       <input type="password" title="password" id="password" placeholder="password" />
       <button type="submit" class="btn" id="loginBtn">Login</button>
       <a class="register text-sm" href="/register">Register</a>
-    </form>
+    </form> --}}
+
+  <!--Modal: Login / Register Form-->
+  <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog cascading-modal" role="document">
+      <!--Content-->
+      <div class="modal-content">
+
+        <!--Modal cascading tabs-->
+        <div class="modal-c-tabs">
+          <!-- Tab panels -->
+          <div class="tab-content">
+            <!--Panel 7-->
+            <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+
+              <!--Body-->
+              <div class="modal-body mb-1 text-center mt-2">
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <div class="md-form form-sm mb-5">
+                  <input type="text" title="username" id="username" placeholder="username" />
+                  <label data-error="wrong" data-success="right" for="modalLRInput10">Username</label>
+                </div>
+
+                <div class="md-form form-sm mb-4 text-center mt-2">
+                  <input type="password" title="password" id="password" placeholder="password" />
+                  <label data-error="wrong" data-success="right" for="modalLRInput11">Password</label>
+                </div>
+                <div class="text-center mt-2">
+                  <button type="submit" class="btn btn-outline-info waves-effect ml-auto" id="loginBtn">Login</button>
+                </div>
+              </div>
+              <!--Footer-->
+              <div class="modal-footer">
+                <div class="options text-center text-md-right mt-1">
+                  <p>Not a member? <a href="/register" class="blue-text">Sign Up</a></p>
+                </div>
+                <button type="button" class="btn btn-outline-info waves-effect ml-auto"
+                  data-dismiss="modal">Close</button>
+              </div>
+
+            </div>
+            <!--/.Panel 7-->
+
+            <!--Footer-->
+
+          </div>
+          <!--/.Panel 8-->
+        </div>
+
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+  </div>
+  <!--Modal: Login / Register Form-->
+
+  <div class="text-center">
+    <a href="" class="btn btn-default btn-rounded my-3 masthead-subheading font-weight-light mb-0" data-toggle="modal"
+      data-target="#modalLRForm">LOGIN</a>
+  </div>
+
   </div>
   </div>
   <!--end log form -->
@@ -52,26 +117,26 @@
   </div>
   </div>
   </div>
-<div class="col-md-12 d-flex justify-content-center mb-5" id="truck-list"></div>
-</div>
-  </section>
-  <section class="page-section portfolio pt-0" id="portfolio">
-    <div class="container pb-2">
-      <!-- Portfolio Grid Items-->
-      <div id="truck-list-modal" class="row card-columns">
-        <!-- Portfolio Item 1-->
-      </div>
-  </section>
-  <section class="page-section bg-primary text-white mb-0" id="about">
-    <div class="container">
-      {{!-- ABOUT --}}
-      <div class="group-list">
-        <div class="container"></div>
-      </div>
-      <!-- About Section Heading-->
-      <div class="text-center">
-        <h2 class="page-section-heading d-inline-block text-white">ABOUT</h2>
-        </div>
+  <div class="col-md-12 d-flex justify-content-center mb-5" id="truck-list"></div>
+  </div>
+</section>
+<section class="page-section portfolio pt-0" id="portfolio">
+  <div class="container pb-2">
+    <!-- Portfolio Grid Items-->
+    <div id="truck-list-modal" class="row card-columns">
+      <!-- Portfolio Item 1-->
+    </div>
+</section>
+<section class="page-section bg-primary text-white mb-0" id="about">
+  <div class="container">
+    {{!-- ABOUT --}}
+    <div class="group-list">
+      <div class="container"></div>
+    </div>
+    <!-- About Section Heading-->
+    <div class="text-center">
+      <h2 class="page-section-heading d-inline-block text-white">ABOUT</h2>
+    </div>
     <!-- Icon Divider-->
     <div class="divider-custom divider-light">
       <div class="divider-custom-line"></div>
@@ -81,9 +146,13 @@
     <!-- About Section Content-->
     <div class="row">
       <div class="col-lg-12 ml-auto">
-        <p class="pre-wrap lead">So, why food trucks? 
-          <br>Many of us tire of the same boring foods and the same menu items. So, who is in the mood for something different? I know we are! Now you can find food trucks in your area or search the location of your favorite truck with a click of a button. 
-          <br>The food truck industry is flooding with creativity bringing a whole lot of happiness to their customers with the freedom of creating a variety of custom menus, and if you haven't jumped on the food truck phenomenon. Now is your chance. Use Food Truck Frenzy to search out your first experience.</p>
+        <p class="pre-wrap lead">So, why food trucks?
+          <br>Many of us tire of the same boring foods and the same menu items. So, who is in the mood for something
+          different? I know we are! Now you can find food trucks in your area or search the location of your favorite
+          truck with a click of a button.
+          <br>The food truck industry is flooding with creativity bringing a whole lot of happiness to their customers
+          with the freedom of creating a variety of custom menus, and if you haven't jumped on the food truck
+          phenomenon. Now is your chance. Use Food Truck Frenzy to search out your first experience.</p>
       </div>
     </div>
   </div>
@@ -95,24 +164,28 @@
       <!-- Footer Location-->
       <div class="col-lg-4 mb-5 mb-lg-0">
         <h6 class="mb-4">PHONE
-          <p class="pre-wrap lead mb-0" style="font-size: small;">(555) 555-5555</p></h6>
-          <h6 class="mb-4">EMAIL
-          <p class="pre-wrap lead mb-0" style="font-size: small;" href="mailto:thefoodie@foodtruckfrenzy.com">thefoodie@foodtruckfrenzy.com</p></h6>
+          <p class="pre-wrap lead mb-0" style="font-size: small;">(555) 555-5555</p>
+        </h6>
+        <h6 class="mb-4">EMAIL
+          <p class="pre-wrap lead mb-0" style="font-size: small;" href="mailto:thefoodie@foodtruckfrenzy.com">
+            thefoodie@foodtruckfrenzy.com</p>
+        </h6>
       </div>
       <!-- Footer Social Icons-->
       <div class="col-lg-4 mb-5 mb-lg-0">
         <h6 class="mb-4">AROUND THE WEB</h6><a class="btn btn-outline-light btn-social mx-1"
-          href="https://www.facebook.com/StartBootstrap"><i class="fab fa-fw fa-facebook-f" style="font-size: small"></i></a><a
-          class="btn btn-outline-light btn-social mx-1" href="https://www.twitter.com/sbootstrap"><i
-            class="fab fa-fw fa-twitter" style="font-size: small"></i></a><a class="btn btn-outline-light btn-social mx-1"
-          href="https://www.linkedin.com/in/startbootstrap"><i class="fab fa-fw fa-linkedin-in"></i></a><a
-          class="btn btn-outline-light btn-social mx-1" href="https://www.dribble.com/startbootstrap"><i
-            class="fab fa-fw fa-dribbble"></i></a>
+          href="https://www.facebook.com/StartBootstrap"><i class="fab fa-fw fa-facebook-f"
+            style="font-size: small"></i></a><a class="btn btn-outline-light btn-social mx-1"
+          href="https://www.twitter.com/sbootstrap"><i class="fab fa-fw fa-twitter" style="font-size: small"></i></a><a
+          class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/startbootstrap"><i
+            class="fab fa-fw fa-linkedin-in"></i></a><a class="btn btn-outline-light btn-social mx-1"
+          href="https://www.dribble.com/startbootstrap"><i class="fab fa-fw fa-dribbble"></i></a>
       </div>
       <!-- Footer About Text-->
       <div class="col-lg-4">
         <h6 class="mb-4">ABOUT FOOD TRUCK FRENZY</h6>
-        <p class="pre-wrap lead mb-0" style="font-size: small;">Food Trucks add their truck, menu and locations. Users can search for food trucks in their area.</p>
+        <p class="pre-wrap lead mb-0" style="font-size: small;">Food Trucks add their truck, menu and locations. Users
+          can search for food trucks in their area.</p>
       </div>
     </div>
   </div>
