@@ -25,12 +25,10 @@
   <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
       <br>
-
-      <!-- Masthead Heading-->
-      <button id="edit-truck" class="btn float-right" data-toggle="modal" data-target="#edit-truck-modal"
-        data="{{truck.dataValues.id}}">Edit</button>
         <br>
       <h1 id="{{truck.dataValues.id}}" class="masthead-heading mb-0 truck-id">{{truck.dataValues.name}}</h1>
+       <button id="edit-truck" class="btn btn-secondary float-center" data-toggle="modal" data-target="#edit-truck-modal"
+        data="{{truck.dataValues.id}}">Edit</button>
       <br>
 
       <div class="modal fade" id="edit-truck-modal" role="dialog">
@@ -66,55 +64,6 @@
         </div>
       </div>
 
-<<<<<<< HEAD
-  </div>
-</header>
-<section class="page-section portfolio" id="portfolio">
-  <div class="container pb-5">
-    <!-- Portfolio Section Heading-->
-    <div class="text-center">
-      <h2 class="page-section-heading text-secondary mb-0 d-inline-block">Menu Items</h2>
-    </div>
-    <!-- Icon Divider-->
-    <div class="divider-custom">
-      <div class="divider-custom-line"></div>
-      <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-      <div class="divider-custom-line"></div>
-    </div>
-    <!-- Portfolio Grid Items-->
-    <ul id="item-list" class="list-group">
-
-    </ul>
-    <div class="row justify-content-center">
-      <!-- Portfolio Items-->
-
-    </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  <section class="page-section bg-primary text-white mb-0" id="about">
-    <div class="container">
-      {{!-- LISTING --}}
-      <div class="group-list">
-        <div class="container"></div>
-      </div>
-
-      <!-- About Section Heading-->
-      <div class="text-center">
-        <h2 class="page-section-heading d-inline-block text-white">ABOUT</h2>
-      </div>
-      <!-- Icon Divider-->
-      <div class="divider-custom divider-light">
-        <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-        <div class="divider-custom-line"></div>
-      </div>
-      <!-- About Section Content-->
-      <div class="row">
-        <div class="col-lg-12 ml-auto">
-        <p class="pre-wrap lead">The upkeep of a website, creating a campaign to keep customers up-to-date on your location, and finding the time to keep it all active can get pretty expensive. Here at Food Truck Frenzy, we have created a way for food truck owners to go to one site to create an online presence, advertise their dynamic menus, and keep customers up-to-date on their location. </p>
-=======
       <span>
         <h4>{{truck.dataValues.city}}, {{truck.dataValues.country}} {{truck.dataValues.phone_number}}</h4>
       </span>
@@ -127,7 +76,6 @@
           <label for="item-price"></label>
           <input type="text" class="block" id="item-price" class="form-control" aria-describedby="item-price"
             placeholder="Enter a price $">
->>>>>>> b27339d4c0bc6531dc43ca35b91bc857b526ad10
         </div>
         <button id="submit" class="btn btn-secondary float-center">Submit</button>
       </form>

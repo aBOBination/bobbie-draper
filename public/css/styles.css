@@ -10675,21 +10675,13 @@ form .row:first-child .floating-label-form-group {
 
 #creatAccBtn {
   max-width: 13.5rem;
-<<<<<<< HEAD
-
-=======
->>>>>>> b27339d4c0bc6531dc43ca35b91bc857b526ad10
 }
 #loginAccBtn {
   max-width: 13.5rem;
 }
 #regPass {
   max-width: 13.5rem;
-<<<<<<< HEAD
-  display:block;
-=======
   display: block;
->>>>>>> b27339d4c0bc6531dc43ca35b91bc857b526ad10
   margin-top: 8px;
 }
 #regUser {
