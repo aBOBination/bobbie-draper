@@ -51,8 +51,8 @@ var refreshTrucks = function() {
         })
         .append($a);
       var $button = $('<button>')
-        .addClass('btn btn-danger float-right delete')
-        .text('ｘ');
+        .addClass('btn-sm btn-danger float-right delete')
+        .text('Delete');
       $li.append($button);
       return $li;
     });
@@ -127,7 +127,7 @@ var handleEditSubmit = function() {
 
   API.updateTruck(payload).then(function() {
     console.log(payload);
-    // window.location.href = '/trucks/' + payload.id;
+    window.location.href = '/trucks/' + payload.id;
   });
 };
 

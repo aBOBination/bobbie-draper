@@ -1,5 +1,4 @@
 // Get references to page elements
-var $truckName = $('#truck-name');
 var $submitBtn = $('#submit');
 // var $editBtn = $('#edit');
 var $truckList = $('#truck-list');
@@ -7,28 +6,27 @@ var $truckList = $('#truck-list');
 // The API object contains methods for each kind of request we'll make
 var API = {
   postTruck: function(payload) {
-    console.log(payload);
     return $.ajax({
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       type: 'POST',
       url: 'api/trucks',
-      data: JSON.stringify(payload),
+      data: JSON.stringify(payload)
     });
   },
   getTrucks: function() {
     return $.ajax({
       url: 'api/trucks/',
-      type: 'GET',
+      type: 'GET'
     });
   },
   deleteTruck: function(id) {
     return $.ajax({
       url: 'api/trucks/' + id,
-      type: 'DELETE',
+      type: 'DELETE'
     });
-  },
+  }
 };
 
 // refreshTrucks gets new trucks from the db and repopulates the list
@@ -43,17 +41,17 @@ var refreshTrucks = function() {
         .text(payload.name)
         .attr({
           class: 'list-group-item',
-          'data-id': payload.id,
+          'data-id': payload.id
         });
       // .append($a);
 
       var $deleteButton = $('<button>')
-        .addClass('btn btn-danger float-right delete block2')
-        .text('ｘ');
+        .addClass('btn-sm btn-danger float-right delete block1')
+        .text('Delete');
 
       var $editButton = $('<a>')
         .attr('href', '/trucks/' + payload.id)
-        .addClass('btn btn-primary float-right edit block2')
+        .addClass('btn-sm btn-primary float-right edit block1 mr-4')
         .text('Edit');
 
       $li.append([$deleteButton, $editButton]);
@@ -72,19 +70,46 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var payload = {
-    name: $truckName.val().trim(),
+    name: $('#truck-name')
+      .val()
+      .trim(),
+    phone_number: $('#truck-phone')
+      .val()
+      .trim(),
+    city: $('#truck-city')
+      .val()
+      .trim(),
+    state: $('#truck-state')
+      .val()
+      .trim(),
+    country: $('#truck-country')
+      .val()
+      .trim(),
+    img_url: $('#truck-img')
+      .val()
+      .trim(),
+    description: $('#truck-description')
+      .val()
+      .trim()
   };
-  console.log(payload);
-  // if (!truck.name) {
-  //   alert('You must enter an truck name and description!');
-  //   return;
-  // }
+  if (
+    !payload.name ||
+    !payload.phone_number ||
+    !payload.city ||
+    !payload.state ||
+    !payload.country ||
+    !payload.img_url ||
+    !payload.description
+  ) {
+    alert('You must fill out all fields to create a food truck.');
+    return;
+  }
 
-  API.postTruck(payload).then(function() {
-    refreshTrucks();
+  API.postTruck(payload).then(function(data) {
+    window.location.href = '/trucks/' + data.id;
   });
 
-  $truckName.val('');
+  $('#truck-name').val('');
 };
 
 // handleDeleteBtnClick is called when an truck's delete button is clicked

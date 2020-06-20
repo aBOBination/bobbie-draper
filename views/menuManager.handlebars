@@ -104,27 +104,24 @@
       </div>
       <!-- Icon Divider-->
       <div class="divider-custom">
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="item-name"></label>
-              <input type="text" class="block" id="item-name" class="form-control" aria-describedby="item-name"
-                placeholder="Add item">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="item-price"></label>
-              <input type="text" class="block" id="item-price" class="form-control" aria-describedby="item-price"
-                placeholder="Add price per">
-            </div>
+        <form class="clearfix mb-4 form-inline" action="POST">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="item-name"></label>
+            <input type="text" class="block" id="item-name" class="form-control" aria-describedby="item-name"
+            placeholder="Add item">
           </div>
-          <button id="submit" class="btn btn-secondary float-center">Submit</button>
-        </form>
-        {{!-- <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-        <div class="divider-custom-line"></div> --}}
+          <div class="form-group col-md-6">
+            <label for="item-price"></label>
+            <input type="text" class="block" id="item-price" class="form-control" aria-describedby="item-price"
+            placeholder="Add price per">
+          </div>
+        </div>
+        <button id="submit" class="btn btn-secondary float-center">Add</button>
+      </form>
       </div>
       <!-- Portfolio Grid Items-->
-      <ul id="item-list" class="list-group">
+      <ul id="item-list" class="list-group-flush">
 
       </ul>
       <div class="row justify-content-center">
@@ -143,12 +140,6 @@
         <div class="text-center">
           <h2 class="page-section-heading d-inline-block text-white"></h2>
         </div>
-        <!-- Icon Divider-->
-        {{!-- <div class="divider-custom divider-light">
-          <div class="divider-custom-line"></div>
-          <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-          <div class="divider-custom-line"></div>
-        </div> --}}
     </section>
     {{!-- FOOTER --}}
     <footer class="footer text-center">
