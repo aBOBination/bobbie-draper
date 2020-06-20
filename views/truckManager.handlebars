@@ -9,14 +9,67 @@
   <div class="container d-flex align-items-center flex-column">
     <h3 class="masthead-heading mb-0">Create New Food Truck Here!</h3>
     <br>
-    <form class="clearfix mb-4" action="POST">
-      <div class="form-group">
-        <input type="text" id="truck-name" class="form-control" aria-describedby="truck-name"
-          placeholder="Enter Food Truck Name">
-      </div>
-      <button id="submit" class="btn btn-secondary float-center">Submit</button>
-    </form>
   </div>
+
+  {{!-- new modal --}}
+   <button id="submit-modal" class="btn btn-secondary float-center" data-toggle="modal" data-target="#submit-truck-modal">Add Truck</button>
+
+
+  <div class="modal fade" id="submit-truck-modal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+
+            <div class="modal-body">
+              <form id="cms">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="title">Name:</label>
+                    <input type="text" id="truck-name" class="form-control" aria-describedby="truck-name" placeholder="">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="title">Phone:</label>
+                    <input placeholder="" type="text" class="form-control" id="truck-phone">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="title">City:</label>
+                    <input placeholder="" type="text" class="form-control" id="truck-city">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="title">State:</label>
+                    <input placeholder="" type="text" class="form-control" id="truck-state">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="title">Country:</label>
+                    <input placeholder="" type="text" class="form-control" id="truck-country">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for="title">Image URL:</label>
+                    <input placeholder="" type="text" class="form-control" id="truck-img">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label for="body">Description:</label>
+                  <textarea placeholder="" class="form-control" rows="3" id="truck-description"></textarea>
+                </div>
+                <br/>
+                <button id="submit" class="btn btn-secondary float-center">Add Truck</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary float-center update-truck"
+                data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{!-- new modal --}}
+
+
 </header>
 <section class="page-section portfolio" id="portfolio">
   <div class="container">
@@ -26,14 +79,8 @@
       <br>
       <h2 class="page-section-heading text-secondary mb-0 d-inline-block">YOUR TRUCKS</h2>
     </div>
-    <!-- Icon Divider-->
-    <div class="divider-custom">
-      <div class="divider-custom-line"></div>
-      <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-      <div class="divider-custom-line"></div>
-    </div>
     <!-- Portfolio Grid Items-->
-    <ul id="truck-list" class="list-group">
+    <ul id="truck-list" class="list-group-flush">
 
     </ul>
     <div class="row justify-content-center">
