@@ -301,3 +301,4 @@ insert into menu_items (name, createdAt, updatedAt, truckId, price) values ('orz
 insert into menu_items (name, createdAt, updatedAt, truckId, price) values ('chocolate peanut butter classic bacon skewers', '2019-07-20 19:18:51', '2019-07-20 19:18:51', 48, 13.7);
 insert into menu_items (name, createdAt, updatedAt, truckId, price) values ('sugar free mug cake', '2019-07-02 01:57:05', '2019-07-02 01:57:05', 49, 4.46);
 insert into menu_items (name, createdAt, updatedAt, truckId, price) values ('open faced sandwiches with herbed cream cheese and baby cucumber', '2020-01-30 19:21:38', '2020-01-30 19:21:38', 50, 9.9);
+insert into users(name, password,)
