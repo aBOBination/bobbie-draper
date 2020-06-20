@@ -1,35 +1,62 @@
-# MenuDB
 
-Team Members
+![Food Truck Frenzy Logo](/public/assets/img/food_truck_logo_blue.png) 
+
+
+https://food-truck-frenzy.herokuapp.com/
+
+# Food Truck Frenzy 
+
+Target Audience:
+
+* For the foodie looking to try something new.
+* For the food truck owner to be able to update their menu, price, and locations.
+  
+Problem It Addresses:
+
+* Not knowing where a food truck is going to be and what they have on their menu.
+* Food truck owners not being able to get their target customers.
+
+
+Team Members:
 
 * Melanie Bott
 * Aaron Bertagnole
 * Bobby Marks
 * Mark Syphus
 * Mckell Banks
+  
+ Technologies used:
 
-MVP
+* Node.js
+* Express
+* Express-Handlebars
+* body-parser
+* MySQL
+* Sequelize
+* Mockaroo
 
-# MenuDB
+# MVP
 
-A place for resturants to share their menus and pricing with the world.
+### Food Truck Frenzy
+
+A place for users to search for different food trucks, and a place for food truck owners to edit and post their menu, location, and prices.
 
 
-### Restaurant Users
+### Food Truck Owners
 
-Restaurant Input:
-Name, location, website, phone number, cuisine, tags, price point, menu items w/ price & image (optional)
+Food Truck Owners Input:
+Name, location, website, phone number, price point, menu items w/ price & image (optional)
 
 * POST
 * UPDATE
 * DELETE
 * GET
 
-### Non-restaurant users
+### Users
 
 * GET
 
-Users can search by resturants, location, cuisine and get back results for the requested search.
+Users can search by Food Truck or cuisine and get back results for the requested search.
 
 ### Priority Items
 
@@ -42,5 +69,5 @@ Users can search by resturants, location, cuisine and get back results for the r
 * ability to place an order
 * ability to submit a group order (group payment)
 * order history
-* favorite resturants
-* ability to hid api behind api user
+* favorite food trucks
+
