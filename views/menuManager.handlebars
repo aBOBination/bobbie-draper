@@ -25,10 +25,10 @@
   <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
       <br>
-        <br>
+      <br>
       <h1 id="{{truck.dataValues.id}}" class="masthead-heading mb-0 truck-id">{{truck.dataValues.name}}</h1>
       <br>
-       <button id="edit-truck" class="btn btn-secondary float-center" data-toggle="modal" data-target="#edit-truck-modal"
+      <button id="edit-truck" class="btn btn-secondary float-center" data-toggle="modal" data-target="#edit-truck-modal"
         data="{{truck.dataValues.id}}">Edit Truck</button>
       <br>
 
@@ -36,59 +36,67 @@
         <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
+            <div class="modal-content justify-content: center">
+              <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold margin-left">Sign in</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
 
-            <div class="modal-body">
-              <form id="cms">
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="title">Name:</label>
-                    <input placeholder="{{truck.dataValues.name}}" type="text" class="form-control" id="edit-name">
+              <div class="modal-body">
+                <form id="cms">
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="title">Name:</label>
+                      <input placeholder="{{truck.dataValues.name}}" type="text" class="form-control" id="edit-name">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="title">Phone:</label>
+                      <input placeholder="{{truck.dataValues.phone_number}}" type="text" class="form-control"
+                        id="edit-phone">
+                    </div>
                   </div>
-                  <div class="form-group col-md-6">
-                    <label for="title">Phone:</label>
-                    <input placeholder="{{truck.dataValues.phone_number}}" type="text" class="form-control" id="edit-phone">
+                  <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label for="title">City:</label>
+                      <input placeholder="{{truck.dataValues.city}}" type="text" class="form-control" id="edit-city">
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="title">State:</label>
+                      <input placeholder="{{truck.dataValues.state}}" type="text" class="form-control" id="edit-state">
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="title">Country:</label>
+                      <input placeholder="{{truck.dataValues.country}}" type="text" class="form-control"
+                        id="edit-country">
+                    </div>
                   </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label for="title">City:</label>
-                    <input placeholder="{{truck.dataValues.city}}" type="text" class="form-control" id="edit-city">
+                  <div class="form-row">
+                    <div class="form-group col-md-9">
+                      <label for="title">Image URL:</label>
+                      <input placeholder="{{truck.dataValues.img_url}}" type="text" class="form-control" id="edit-img">
+                    </div>
+                    <div class="form-group col-md-3 img_thumb">
+                      <img id="img_thumb" src="{{truck.dataValues.img_url}}" alt="thumb"
+                        style="width:auto;height:60px;">
+                    </div>
                   </div>
-                  <div class="form-group col-md-4">
-                    <label for="title">State:</label>
-                    <input placeholder="{{truck.dataValues.state}}" type="text" class="form-control" id="edit-state">
+                  <div class="form-row">
+                    <label for="body">Description:</label>
+                    <textarea placeholder="{{truck.dataValues.description}}" class="form-control" rows="3"
+                      id="edit-description"></textarea>
                   </div>
-                  <div class="form-group col-md-4">
-                    <label for="title">Country:</label>
-                    <input placeholder="{{truck.dataValues.country}}" type="text" class="form-control" id="edit-country">
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-9">
-                    <label for="title">Image URL:</label>
-                    <input placeholder="{{truck.dataValues.img_url}}" type="text" class="form-control" id="edit-img">
-                  </div>
-                  <div class="form-group col-md-3 img_thumb">
-                    <img id="img_thumb" src="{{truck.dataValues.img_url}}" alt="thumb" style="width:auto;height:60px;">
-                  </div>
-                </div>
-                <div class="form-row">
-                  <label for="body">Description:</label>
-                  <textarea placeholder="{{truck.dataValues.description}}" class="form-control" rows="3" id="edit-description"></textarea>
-                </div>
-                <br/>
-                <button id="edit-submit" type="submit" class="btn btn-secondary float-center submit" data="{{truck.dataValues.id}}">Submit</button>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary float-center update-truck"
-                data-dismiss="modal">Close</button>
+                  <br />
+                  <button id="edit-submit" type="submit" class="btn btn-secondary float-center submit"
+                    data="{{truck.dataValues.id}}">Submit</button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
+        <br>
       </div>
-      <br>
-    </div>
   </header>
   <section class="page-section portfolio" id="portfolio">
     <div class="container padding_bottom">
@@ -100,20 +108,20 @@
       <!-- Icon Divider-->
       <div class="divider-custom">
         <form class="clearfix mb-4" action="POST">
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="item-name"></label>
-            <input type="text" class="block" id="item-name" class="form-control" aria-describedby="item-name"
-            placeholder="Add item">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="item-name"></label>
+              <input type="text" class="block" id="item-name" class="form-control" aria-describedby="item-name"
+                placeholder="Add item">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="item-price"></label>
+              <input type="text" class="block" id="item-price" class="form-control" aria-describedby="item-price"
+                placeholder="Add price per">
+            </div>
           </div>
-          <div class="form-group col-md-6">
-            <label for="item-price"></label>
-            <input type="text" class="block" id="item-price" class="form-control" aria-describedby="item-price"
-            placeholder="Add price per">
-          </div>
-        </div>
-        <button id="submit" class="btn btn-secondary float-center">Submit</button>
-      </form>
+          <button id="submit" class="btn btn-secondary float-center">Submit</button>
+        </form>
         {{!-- <div class="divider-custom-line"></div>
         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
         <div class="divider-custom-line"></div> --}}
@@ -146,34 +154,39 @@
         </div> --}}
     </section>
     {{!-- FOOTER --}}
-<footer class="footer text-center">
-  <div class="container">
-    <div class="row">
-      <!-- Footer Location-->
-      <div class="col-lg-4 mb-5 mb-lg-0">
-        <h6 class="mb-4">PHONE
-          <p class="pre-wrap lead mb-0" style="font-size: small;">(555) 555-5555</p></h6>
-          <h6 class="mb-4">EMAIL
-          <p class="pre-wrap lead mb-0" style="font-size: small;" href="mailto:thefoodie@foodtruckfrenzy.com">thefoodie@foodtruckfrenzy.com</p></h6>
+    <footer class="footer text-center">
+      <div class="container">
+        <div class="row">
+          <!-- Footer Location-->
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <h6 class="mb-4">PHONE
+              <p class="pre-wrap lead mb-0" style="font-size: small;">(555) 555-5555</p>
+            </h6>
+            <h6 class="mb-4">EMAIL
+              <p class="pre-wrap lead mb-0" style="font-size: small;" href="mailto:thefoodie@foodtruckfrenzy.com">
+                thefoodie@foodtruckfrenzy.com</p>
+            </h6>
+          </div>
+          <!-- Footer Social Icons-->
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <h6 class="mb-4">AROUND THE WEB</h6><a class="btn btn-outline-light btn-social mx-1"
+              href="https://www.facebook.com/StartBootstrap"><i class="fab fa-fw fa-facebook-f"
+                style="font-size: small"></i></a><a class="btn btn-outline-light btn-social mx-1"
+              href="https://www.twitter.com/sbootstrap"><i class="fab fa-fw fa-twitter"
+                style="font-size: small"></i></a><a class="btn btn-outline-light btn-social mx-1"
+              href="https://www.linkedin.com/in/startbootstrap"><i class="fab fa-fw fa-linkedin-in"></i></a><a
+              class="btn btn-outline-light btn-social mx-1" href="https://www.dribble.com/startbootstrap"><i
+                class="fab fa-fw fa-dribbble"></i></a>
+          </div>
+          <!-- Footer About Text-->
+          <div class="col-lg-4">
+            <h6 class="mb-4">ABOUT FOOD TRUCK FRENZY</h6>
+            <p class="pre-wrap lead mb-0" style="font-size: small;">Food Trucks add their truck, menu and locations.
+              Users can search for food trucks in their area.</p>
+          </div>
+        </div>
       </div>
-      <!-- Footer Social Icons-->
-      <div class="col-lg-4 mb-5 mb-lg-0">
-        <h6 class="mb-4">AROUND THE WEB</h6><a class="btn btn-outline-light btn-social mx-1"
-          href="https://www.facebook.com/StartBootstrap"><i class="fab fa-fw fa-facebook-f" style="font-size: small"></i></a><a
-          class="btn btn-outline-light btn-social mx-1" href="https://www.twitter.com/sbootstrap"><i
-            class="fab fa-fw fa-twitter" style="font-size: small"></i></a><a class="btn btn-outline-light btn-social mx-1"
-          href="https://www.linkedin.com/in/startbootstrap"><i class="fab fa-fw fa-linkedin-in"></i></a><a
-          class="btn btn-outline-light btn-social mx-1" href="https://www.dribble.com/startbootstrap"><i
-            class="fab fa-fw fa-dribbble"></i></a>
-      </div>
-      <!-- Footer About Text-->
-      <div class="col-lg-4">
-        <h6 class="mb-4">ABOUT FOOD TRUCK FRENZY</h6>
-        <p class="pre-wrap lead mb-0" style="font-size: small;">Food Trucks add their truck, menu and locations. Users can search for food trucks in their area.</p>
-      </div>
-    </div>
-  </div>
-</footer>
+    </footer>
     <!-- Copyright Section-->
     <section class="copyright py-4 text-center text-white">
       <div class="container"><small class="pre-wrap">Copyright © Food Truck Fenzy 2020</small></div>
