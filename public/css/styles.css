@@ -10754,3 +10754,20 @@ form .row:first-child .floating-label-form-group {
 .modal-backdrop {
   z-index: -1;
 }
+
+label {
+  color: black;
+  font-weight: bolder;
+}
+
+.img_thumb {
+  align-self: center;
+  margin-bottom: 0;
+}
+
+.form-inline label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}

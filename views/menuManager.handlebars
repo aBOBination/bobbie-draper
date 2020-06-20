@@ -29,7 +29,7 @@
       <h1 id="{{truck.dataValues.id}}" class="masthead-heading mb-0 truck-id">{{truck.dataValues.name}}</h1>
       <br>
        <button id="edit-truck" class="btn btn-secondary float-center" data-toggle="modal" data-target="#edit-truck-modal"
-        data="{{truck.dataValues.id}}">Edit</button>
+        data="{{truck.dataValues.id}}">Edit Truck</button>
       <br>
 
       <div class="modal fade" id="edit-truck-modal" role="dialog">
@@ -39,23 +39,6 @@
 
             <div class="modal-body">
               <form id="cms">
-                <div class="form-group">
-                  <label for="title">Name:</label>
-                  <input placeholder="{{truck.dataValues.name}}" type="text" class="form-control" id="edit-name">
-                  <label for="title">City:</label>
-                  <input placeholder="{{truck.dataValues.city}}" type="text" class="form-control" id="edit-city">
-                  <label for="title">State:</label>
-                  <input placeholder="{{truck.dataValues.state}}" type="text" class="form-control" id="edit-state">
-                  <label for="title">Country:</label>
-                  <input placeholder="{{truck.dataValues.country}}" type="text" class="form-control" id="edit-country">
-                  <label for="title">Phone:</label>
-                  <input placeholder="{{truck.dataValues.phone_number}}" type="text" class="form-control" id="edit-phone">
-                  <label for="body">Description:</label>
-                  <textarea placeholder="{{truck.dataValues.description}}" class="form-control" rows="10" id="edit-description"></textarea>
-                  <br />
-                  <button id="edit-submit" type="submit" class="btn btn-secondary float-center submit" data="{{truck.dataValues.id}}">Submit</button>
-                </div>
-
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="title">Name:</label>
@@ -68,8 +51,8 @@
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-4">
+                    <label for="title">City:</label>
                     <input placeholder="{{truck.dataValues.city}}" type="text" class="form-control" id="edit-city">
-                    <label for="title">State:</label>
                   </div>
                   <div class="form-group col-md-4">
                     <label for="title">State:</label>
@@ -80,10 +63,18 @@
                     <input placeholder="{{truck.dataValues.country}}" type="text" class="form-control" id="edit-country">
                   </div>
                 </div>
-
+                <div class="form-row">
+                  <div class="form-group col-md-9">
+                    <label for="title">Image URL:</label>
+                    <input placeholder="{{truck.dataValues.img_url}}" type="text" class="form-control" id="edit-img">
+                  </div>
+                  <div class="form-group col-md-3 img_thumb">
+                    <img id="img_thumb" src="{{truck.dataValues.img_url}}" alt="thumb" style="width:auto;height:60px;">
+                  </div>
+                </div>
                 <div class="form-row">
                   <label for="body">Description:</label>
-                  <textarea placeholder="{{truck.dataValues.description}}" class="form-control" rows="10" id="edit-description"></textarea>
+                  <textarea placeholder="{{truck.dataValues.description}}" class="form-control" rows="3" id="edit-description"></textarea>
                 </div>
                 <br/>
                 <button id="edit-submit" type="submit" class="btn btn-secondary float-center submit" data="{{truck.dataValues.id}}">Submit</button>
@@ -96,37 +87,37 @@
           </div>
         </div>
       </div>
-
-      <span>
-        <h4>{{truck.dataValues.city}}, {{truck.dataValues.country}} {{truck.dataValues.phone_number}}</h4>
-      </span>
       <br>
-      <form class="clearfix mb-4" action="POST">
-        <div class="form-group">
-          <label for="item-name"></label>
-          <input type="text" class="block" id="item-name" class="form-control" aria-describedby="item-name"
-            placeholder="Enter an item">
-          <label for="item-price"></label>
-          <input type="text" class="block" id="item-price" class="form-control" aria-describedby="item-price"
-            placeholder="Enter a price $">
-        </div>
-        <button id="submit" class="btn btn-secondary float-center">Submit</button>
-      </form>
-
     </div>
   </header>
   <section class="page-section portfolio" id="portfolio">
     <div class="container padding_bottom">
+
       <!-- Portfolio Section Heading-->
       <div class="text-center">
         <h2 class="page-section-heading text-secondary mb-0 d-inline-block padding_top">Menu Items</h2>
       </div>
       <!-- Icon Divider-->
       <div class="divider-custom">
+        <form class="clearfix mb-4" action="POST">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="item-name"></label>
+            <input type="text" class="block" id="item-name" class="form-control" aria-describedby="item-name"
+            placeholder="Add item">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="item-price"></label>
+            <input type="text" class="block" id="item-price" class="form-control" aria-describedby="item-price"
+            placeholder="Add price per">
+          </div>
+        </div>
+        <button id="submit" class="btn btn-secondary float-center">Submit</button>
+      </form>
         {{!-- <div class="divider-custom-line"></div>
         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
         <div class="divider-custom-line"></div> --}}
-      </div> 
+      </div>
       <!-- Portfolio Grid Items-->
       <ul id="item-list" class="list-group">
 

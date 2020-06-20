@@ -105,6 +105,7 @@ router.put('/api/trucks/', function(req, res) {
         state: req.body.state,
         country: req.body.country,
         phone_number: req.body.phone_number,
+        img_url: req.body.img_url,
         description: req.body.description
       },
       {
