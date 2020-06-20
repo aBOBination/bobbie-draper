@@ -2,7 +2,7 @@
 ![Food Truck Frenzy Logo](/public/assets/img/food_truck_logo_blue.png) 
 
 
-https://food-truck-frenzy.herokuapp.com/
+[https://food-truck-frenzy.herokuapp.com/](https://food-truck-frenzy.herokuapp.com/)
 
 # Food Truck Frenzy 
 
@@ -27,10 +27,14 @@ Team Members:
   
  Technologies used:
 
+* HTML
+* CSS
+* Bootstrap
+* JavaScript
+* jQuery
 * Node.js
 * Express
 * Express-Handlebars
-* body-parser
 * MySQL
 * Sequelize
 * Mockaroo
