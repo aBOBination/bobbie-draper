@@ -3,7 +3,7 @@
   <div class="container"><a class="navbar-brand js-scroll-trigger" href="/">FOOD TRUCK FRENZY</a>
     <div class='login_margin'>
       <button class="navbar-toggler  font-weight-bold bg-primary text-white rounded" type="button" data-toggle="modal"
-        data-target="#modalLRForm">Login</button>
+        data-target="#modalLRForm"><i class="fas fa-user mr-1"></i>Login</button>
     </div>
   </div>
   {{!-- <div class="mainLogin">
@@ -20,7 +20,13 @@
     aria-hidden="true">
     <div class="modal-dialog cascading-modal" role="document">
       <!--Content-->
-      <div class="modal-content">
+      <div class="modal-content justify-content: center">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold margin-left">Sign in</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
 
         <!--Modal cascading tabs-->
         <div class="modal-c-tabs">
@@ -31,31 +37,24 @@
 
               <!--Body-->
               <div class="modal-body mb-1 text-center mt-2">
-                <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                  <div class="divider-custom-line"></div>
-                </div>
-                <div class="md-form form-sm mb-5">
+                <div class="md-form form-sm">
                   <input type="text" title="username" id="username" placeholder="username" />
-                  <label data-error="wrong" data-success="right" for="modalLRInput10">Username</label>
+                  <label data-error="wrong" data-success="right" for="modalLRInput10"></label>
                 </div>
-
                 <div class="md-form form-sm mb-4 text-center mt-2">
                   <input type="password" title="password" id="password" placeholder="password" />
-                  <label data-error="wrong" data-success="right" for="modalLRInput11">Password</label>
+                  <label data-error="wrong" data-success="right" for="modalLRInput11"></label>
                 </div>
                 <div class="text-center mt-2">
-                  <button type="submit" class="btn btn-outline-info waves-effect ml-auto" id="loginBtn">Login</button>
+                  <button type="submit" class="btn btn-secondary float-center" id="loginBtn">Login</button>
                 </div>
               </div>
               <!--Footer-->
-              <div class="modal-footer">
-                <div class="options text-center text-md-right mt-1">
-                  <p>Not a member? <a href="/register" class="blue-text">Sign Up</a></p>
+              <div class="modal-footer modal-bottom-text">
+                <div>
+                  <p class="margin-right"><a href="/register" class="blue-text text-center">Not a member? Sign Up</a>
+                  </p>
                 </div>
-                <button type="button" class="btn btn-outline-info waves-effect ml-auto"
-                  data-dismiss="modal">Close</button>
               </div>
 
             </div>
@@ -71,11 +70,6 @@
     </div>
     <!--/.Content-->
   </div>
-  </div>
-  <!--Modal: Login / Register Form-->
-  </div>
-  </div>
-  <!--end log form -->
   </div>
 </nav>
 <header class="masthead bg-primary text-white text-center">
