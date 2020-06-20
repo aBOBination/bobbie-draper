@@ -5831,13 +5831,14 @@ a.close.disabled {
   position: relative;
   flex: 1 1 auto;
   padding: 4rem 1rem;
+  justify-content: center;
 }
 
 .modal-footer {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   padding: 4rem 1rem-0.25rem;
   border-top: 0 solid #dee2e6;
   border-bottom-right-radius: 0.75rem;
@@ -10700,9 +10701,11 @@ form .row:first-child .floating-label-form-group {
 }
 #loginBtn {
   font-size: small;
+  margin-right: 20px;
 }
 #register {
   font-size: small;
+  margin-right: 50px;
 }
 #username {
   width: 125px;
@@ -10732,9 +10735,11 @@ form .row:first-child .floating-label-form-group {
   border-radius: 0.5rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-.mainLogin {
-  padding-left: 30px;
+
+.margin-left {
+  margin-left: 25px;
 }
+
 #truck-list-modal {
   display: inline-block;
 }
