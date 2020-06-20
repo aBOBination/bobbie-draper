@@ -95,12 +95,12 @@ var handleDeleteBtnClick = function() {
 var handleEditBtnClick = function() {
   var truckId = $(this).attr('data');
   API.getItems(truckId).then(function(data) {
-    console.log(data);
     $('#edit-name').val(data.name);
     $('#edit-city').val(data.city);
     $('#edit-state').val(data.state);
     $('#edit-country').val(data.country);
     $('#edit-phone').val(data.phone_number);
+    $('#edit-img').val(data.img_url);
     $('#edit-description').val(data.description);
   });
 };
@@ -112,6 +112,7 @@ var handleEditSubmit = function() {
   var state = $('#edit-state').val();
   var country = $('#edit-country').val();
   var phone = $('#edit-phone').val();
+  var img = $('#edit-img').val();
   var description = $('#edit-description').val();
   var payload = {
     id: id,
@@ -120,6 +121,7 @@ var handleEditSubmit = function() {
     state: state,
     country: country,
     phone_number: phone,
+    img_url: img,
     description: description
   };
 
