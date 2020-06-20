@@ -4446,7 +4446,7 @@ input[type='button'].btn-block {
     padding-left: 0;
   }
 }
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
   .navbar-expand-lg {
     flex-flow: row nowrap;
     justify-content: flex-start;
@@ -4531,7 +4531,7 @@ input[type='button'].btn-block {
 .navbar-expand > .container-xl {
   padding-right: 0;
   padding-left: 0;
-}
+} */
 .navbar-expand .navbar-nav {
   flex-direction: row;
 }
